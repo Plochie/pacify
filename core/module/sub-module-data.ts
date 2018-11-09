@@ -1,3 +1,4 @@
+import { InReference } from './reference/in-reference';
 import { IDInfo, SubModuleConfig } from './../index';
 import { SubModuleProperty } from './property/sub-module-property';
 
@@ -10,4 +11,5 @@ export class SubModuleData {
     conf: SubModuleConfig;
     confFile : string;
     properties: SubModuleProperty[];
+    inReferences: InReference[];
 }

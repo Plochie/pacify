@@ -6,16 +6,12 @@ export class SubModuleProperty {
     public id: string;
     public type: PropertyValueType;
     public defaultValue?: any;
-    public isExternalValueAllowed: boolean;
-    public isExternalValueAssigned: boolean;
-    public externalValue: string;
     public value: any;
     public regex: RegExp;
     public errorMsg: string;
     public values: any[];
 
-    constructor(displayName: string, id: string, type: PropertyValueType, isExternalValueAllowed: boolean, 
-        defaultValue?: any, values?: any[]) {
+    constructor(displayName: string, id: string, type: PropertyValueType, defaultValue?: any, values?: any[]) {
 
         this.displayName = displayName;
         this.id = id;
@@ -24,8 +20,5 @@ export class SubModuleProperty {
         this.values = values;
 
         this.value = defaultValue;
-        this.isExternalValueAllowed = isExternalValueAllowed;
-        this.isExternalValueAssigned = false;
-        this.externalValue = '';
     }
 }

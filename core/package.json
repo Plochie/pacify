@@ -14,7 +14,9 @@
     "@types/node": "^10.9.4",
     "typescript": "^3.0.3"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@pacify/module": "file:../module"
+  },
   "files": [
     "./dist",
     "./package.json"

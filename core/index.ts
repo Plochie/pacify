@@ -80,6 +80,12 @@ export class UiOutput {
 	value: string;
 }
 
+export class ProjectConfiguration {
+
+	externalConfig: string;
+
+}
+
 
 export enum ElementType {
 	GROUP = 1,

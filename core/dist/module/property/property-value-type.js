@@ -7,4 +7,5 @@ var PropertyValueType;
     PropertyValueType[PropertyValueType["BOOLEAN"] = 3] = "BOOLEAN";
     PropertyValueType[PropertyValueType["DROPDOWN"] = 4] = "DROPDOWN";
     PropertyValueType[PropertyValueType["COLOR_PICKER"] = 5] = "COLOR_PICKER";
+    PropertyValueType[PropertyValueType["ENTITY_MAP"] = 6] = "ENTITY_MAP";
 })(PropertyValueType = exports.PropertyValueType || (exports.PropertyValueType = {}));

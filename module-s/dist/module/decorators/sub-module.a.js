@@ -17,6 +17,7 @@ function SubModule(params) {
             confFilePath = path.join(dirPath, params.conf);
         }
         target.prototype.confFile = confFilePath;
+        target.prototype.isStarter = params.isStarter;
     };
 }
 exports.SubModule = SubModule;

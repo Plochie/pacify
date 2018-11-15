@@ -21,10 +21,12 @@ export function SubModule(params: NodeMappingParam) {
         }
          
         target.prototype.confFile = confFilePath;
+        target.prototype.isStarter = params.isStarter;
     }
 }
 
 
 class NodeMappingParam {
     conf: string;
+    isStarter: boolean;
 }

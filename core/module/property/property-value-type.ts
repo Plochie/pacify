@@ -4,5 +4,6 @@ export enum PropertyValueType {
     STRING = 2,
     BOOLEAN = 3,
     DROPDOWN = 4,
-    COLOR_PICKER = 5
+    COLOR_PICKER = 5,
+    ENTITY_MAP = 6
 }

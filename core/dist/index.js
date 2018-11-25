@@ -43,6 +43,9 @@ var IDInfo = /** @class */ (function () {
         }
         return this.moduleId + exports.PACIFY_ENV.MOD_SUBMOD_SEPARATOR + this.subModuleId + exports.PACIFY_ENV.SUBMOD_CNT_SEPARATOR + this.nodeCounter + '!' + this.id;
     };
+    IDInfo.prototype.getDirId = function () {
+        return this.moduleId + '_' + this.subModuleId + '_' + this.nodeCounter;
+    };
     return IDInfo;
 }());
 exports.IDInfo = IDInfo;

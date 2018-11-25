@@ -29,6 +29,7 @@ export declare class IDInfo {
     nodeCounter: number;
     constructor(moduleId: string, subModuleId: string, nodeCounter?: number, id?: string);
     getId(): string;
+    getDirId(): string;
 }
 export declare class SubModuleConfig {
     subModuleId: string;

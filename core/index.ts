@@ -54,6 +54,10 @@ export class IDInfo {
 		}
 		return this.moduleId + PACIFY_ENV.MOD_SUBMOD_SEPARATOR + this.subModuleId + PACIFY_ENV.SUBMOD_CNT_SEPARATOR + this.nodeCounter + '!' + this.id;
 	}
+
+	getDirId(): string {
+		return this.moduleId + '_' + this.subModuleId + '_' + this.nodeCounter;
+	}
 }
 
 export class SubModuleConfig {

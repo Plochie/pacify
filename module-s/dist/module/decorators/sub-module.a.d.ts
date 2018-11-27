@@ -2,5 +2,6 @@ export declare function SubModule(params: NodeMappingParam): (target: any) => vo
 declare class NodeMappingParam {
     conf: string;
     isStarter: boolean;
+    isGroup?: boolean;
 }
 export {};

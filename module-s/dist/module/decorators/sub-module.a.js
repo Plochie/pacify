@@ -18,11 +18,13 @@ function SubModule(params) {
         }
         target.prototype.confFile = confFilePath;
         target.prototype.isStarter = params.isStarter;
+        target.prototype.isGroup = params.isGroup;
     };
 }
 exports.SubModule = SubModule;
 var NodeMappingParam = /** @class */ (function () {
     function NodeMappingParam() {
+        this.isGroup = false;
     }
     return NodeMappingParam;
 }());

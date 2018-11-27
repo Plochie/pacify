@@ -10,6 +10,7 @@ export class SubModuleData {
     graphId: string;
     conf: SubModuleConfig;
     isStarter: boolean;
+    isGroup: boolean;
     confFile : string;
     properties: SubModuleProperty[];
     inReferences: InReference[];

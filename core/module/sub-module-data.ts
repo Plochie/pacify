@@ -14,5 +14,5 @@ export class SubModuleData {
     confFile : string;
     properties: SubModuleProperty[];
     inReferences: InReference[];
-    bootstrapCounter: number;
+    bootstrapCounter: number = 0;
 }

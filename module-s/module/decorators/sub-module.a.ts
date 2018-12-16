@@ -23,6 +23,7 @@ export function SubModule(params: NodeMappingParam) {
         target.prototype.confFile = confFilePath;
         target.prototype.isStarter = params.isStarter;
         target.prototype.isGroup = params.isGroup;
+        target.prototype.isShared = params.isShared;
     }
 }
 
@@ -31,4 +32,5 @@ class NodeMappingParam {
     conf: string;
     isStarter: boolean;
     isGroup?: boolean = false;
+    isShared?: boolean = false;
 }

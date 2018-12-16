@@ -10,6 +10,7 @@ export declare class SubModuleData {
     conf: SubModuleConfig;
     isStarter: boolean;
     isGroup: boolean;
+    isShared: boolean;
     confFile: string;
     properties: SubModuleProperty[];
     inReferences: InReference[];

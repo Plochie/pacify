@@ -19,12 +19,14 @@ function SubModule(params) {
         target.prototype.confFile = confFilePath;
         target.prototype.isStarter = params.isStarter;
         target.prototype.isGroup = params.isGroup;
+        target.prototype.isShared = params.isShared;
     };
 }
 exports.SubModule = SubModule;
 var NodeMappingParam = /** @class */ (function () {
     function NodeMappingParam() {
         this.isGroup = false;
+        this.isShared = false;
     }
     return NodeMappingParam;
 }());

@@ -3,5 +3,6 @@ declare class NodeMappingParam {
     conf: string;
     isStarter: boolean;
     isGroup?: boolean;
+    isShared?: boolean;
 }
 export {};

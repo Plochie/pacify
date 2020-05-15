@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ESNext", "esnext.asynciterable", "dom"],
+        "types": ["reflect-metadata"],
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+		"sourceMap": true,
+		"baseUrl": "./",
+		"paths": {
+			"@src/*": ["src/*/index", "src/*"],
+			"@entity/*": ["src/storage/entity/index", "src/storage/entity/*"],
+            "@storage/*": ["src/storage/*"],
+            "@environment": ["src/config/config.ts"]
+		},
+    },
+    "include": [
+        "**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

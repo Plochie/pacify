@@ -1,0 +1,860 @@
+2020-04-27T16:15:45.454Z info: connection to config db successful.
+2020-04-27T16:15:45.460Z info: Middleware initiated
+2020-04-27T16:15:45.466Z info: App started successfully
+2020-04-27T16:15:45.478Z info: Server started successfully @ 3001
+2020-04-27T16:18:01.487Z info: connection to config db successful.
+2020-04-27T16:18:01.493Z info: Middleware initiated
+2020-04-27T16:18:01.494Z info: App started successfully
+2020-04-27T16:18:01.513Z info: Server started successfully @ 3001
+2020-04-27T16:18:37.073Z info: connection to config db successful.
+2020-04-27T16:18:37.079Z info: Middleware initiated
+2020-04-27T16:18:37.079Z info: App started successfully
+2020-04-27T16:18:37.091Z info: Server started successfully @ 3001
+2020-04-27T16:18:52.597Z info: connection to config db successful.
+2020-04-27T16:18:52.603Z info: Middleware initiated
+2020-04-27T16:18:52.609Z info: App started successfully
+2020-04-27T16:18:52.621Z info: Server started successfully @ 3001
+2020-04-27T18:34:20.308Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m59[0m:[93m34[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | Query | (string | Query)[]' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+
+[7m59[0m             this.operations.find(id, true).then(result => res.send(result)).catch(error => {
+[7m  [0m [91m                                 ~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m59[0m:[93m49[0m - [91merror[0m[90m TS7006: [0mParameter 'result' implicitly has an 'any' type.
+
+[7m59[0m             this.operations.find(id, true).then(result => res.send(result)).catch(error => {
+[7m  [0m [91m                                                ~~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m59[0m:[93m83[0m - [91merror[0m[90m TS7006: [0mParameter 'error' implicitly has an 'any' type.
+
+[7m59[0m             this.operations.find(id, true).then(result => res.send(result)).catch(error => {
+[7m  [0m [91m                                                                                  ~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m36[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | Query | (string | Query)[]' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                   ~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m45[0m - [91merror[0m[90m TS7006: [0mParameter 'result' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                            ~~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m89[0m - [91merror[0m[90m TS7006: [0mParameter 'error' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                                                                        ~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m59[0m:[93m34[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | Query | (string | Query)[]' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+
+[7m59[0m             this.operations.find(id, true).then(result => res.send(result)).catch(error => {
+[7m  [0m [91m                                 ~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m59[0m:[93m49[0m - [91merror[0m[90m TS7006: [0mParameter 'result' implicitly has an 'any' type.
+
+[7m59[0m             this.operations.find(id, true).then(result => res.send(result)).catch(error => {
+[7m  [0m [91m                                                ~~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m59[0m:[93m83[0m - [91merror[0m[90m TS7006: [0mParameter 'error' implicitly has an 'any' type.
+
+[7m59[0m             this.operations.find(id, true).then(result => res.send(result)).catch(error => {
+[7m  [0m [91m                                                                                  ~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m36[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | Query | (string | Query)[]' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                   ~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m45[0m - [91merror[0m[90m TS7006: [0mParameter 'result' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                            ~~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m89[0m - [91merror[0m[90m TS7006: [0mParameter 'error' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                                                                        ~~~~~[0m
+
+    at createTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-04-27T18:35:18.373Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m36[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | Query | (string | Query)[]' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                   ~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m45[0m - [91merror[0m[90m TS7006: [0mParameter 'result' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                            ~~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m89[0m - [91merror[0m[90m TS7006: [0mParameter 'error' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                                                                        ~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m36[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | Query | (string | Query)[]' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                   ~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m45[0m - [91merror[0m[90m TS7006: [0mParameter 'result' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                            ~~~~~~[0m
+[96msrc/controller/_abstract/crud.abstract.ts[0m:[93m92[0m:[93m89[0m - [91merror[0m[90m TS7006: [0mParameter 'error' implicitly has an 'any' type.
+
+[7m92[0m             this.operations.delete(id).then(result => res.status(200).send(true)).catch(error => {
+[7m  [0m [91m                                                                                        ~~~~~[0m
+
+    at createTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-04-27T18:35:24.206Z info: connection to config db successful.
+2020-04-27T18:35:24.213Z info: Middleware initiated
+2020-04-27T18:35:24.214Z info: App started successfully
+2020-04-27T18:35:24.226Z info: Server started successfully @ 3001
+2020-04-27T18:35:41.918Z info: connection to config db successful.
+2020-04-27T18:35:41.923Z info: Middleware initiated
+2020-04-27T18:35:41.934Z info: App started successfully
+2020-04-27T18:35:41.949Z info: Server started successfully @ 3001
+2020-04-27T18:37:10.286Z info: connection to config db successful.
+2020-04-27T18:37:10.293Z info: Middleware initiated
+2020-04-27T18:37:10.293Z info: App started successfully
+2020-04-27T18:37:10.306Z info: Server started successfully @ 3001
+2020-04-27T18:46:43.712Z info: connection to config db successful.
+2020-04-27T18:46:43.719Z info: Middleware initiated
+2020-04-27T18:46:43.719Z info: App started successfully
+2020-04-27T18:46:43.733Z info: Server started successfully @ 3001
+2020-04-27T18:49:39.515Z info: connection to config db successful.
+2020-04-27T18:49:39.520Z info: Middleware initiated
+2020-04-27T18:49:39.521Z info: App started successfully
+2020-04-27T18:49:39.533Z info: Server started successfully @ 3001
+2020-04-27T18:50:52.484Z info: connection to config db successful.
+2020-04-27T18:50:52.491Z info: Middleware initiated
+2020-04-27T18:50:52.491Z info: App started successfully
+2020-04-27T18:50:52.503Z info: Server started successfully @ 3001
+2020-04-27T18:51:56.331Z info: connection to config db successful.
+2020-04-27T18:51:56.337Z info: Middleware initiated
+2020-04-27T18:51:56.338Z info: App started successfully
+2020-04-27T18:51:56.349Z info: Server started successfully @ 3001
+2020-04-27T18:52:10.368Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof TCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof TCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof TCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof TCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(TCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof TCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof TCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof TCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof TCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(TCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-04-27T18:52:24.984Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof TCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof TCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof TCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof TCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(TCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof TCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof TCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof TCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof TCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(TCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-04-27T18:55:13.772Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof TCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof TCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof TCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof TCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(TCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof TCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof TCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof TCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof TCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(TCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-04-27T18:55:48.959Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof PCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof PCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof PCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof PCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(PCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controller/category/category.controller.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'DefaultOperations<typeof PCategory>' is not assignable to type 'IOperations<PCategory>'.
+  The types returned by 'findAll(...)' are incompatible between these types.
+    Type 'Promise<(typeof PCategory)[]>' is not assignable to type 'Promise<PCategory[]>'.
+      Type '(typeof PCategory)[]' is not assignable to type 'PCategory[]'.
+        Type 'typeof PCategory' is missing the following properties from type 'PCategory': key, modules, id
+
+[7m26[0m         return new DefaultOperations(PCategory, DatabaseName.CONFIG);
+[7m  [0m [91m        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\Node_Projects\ThingFramework2\PacifyDev\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-04-27T18:56:07.880Z info: connection to config db successful.
+2020-04-27T18:56:07.886Z info: Middleware initiated
+2020-04-27T18:56:10.934Z info: connection to config db successful.
+2020-04-27T18:56:10.944Z info: Middleware initiated
+2020-04-27T18:56:10.945Z info: App started successfully
+2020-04-27T18:56:10.957Z info: Server started successfully @ 3001
+2020-04-27T18:56:15.222Z info: connection to config db successful.
+2020-04-27T18:56:15.229Z info: Middleware initiated
+2020-04-27T18:56:15.237Z info: App started successfully
+2020-04-27T18:56:15.250Z info: Server started successfully @ 3001
+2020-04-27T18:56:21.457Z info: connection to config db successful.
+2020-04-27T18:56:21.463Z info: Middleware initiated
+2020-04-27T18:56:21.464Z info: App started successfully
+2020-04-27T18:56:21.475Z info: Server started successfully @ 3001
+2020-04-27T18:56:33.630Z info: GET: CategoryController
+2020-04-27T18:56:33.649Z error: SQLITE_ERROR: no such table: t_category
+2020-04-27T18:56:58.127Z info: GET ALL: CategoryController
+2020-04-27T18:56:58.131Z error: SQLITE_ERROR: no such table: t_category
+2020-04-27T18:58:35.430Z info: connection to config db successful.
+2020-04-27T18:58:35.436Z info: Middleware initiated
+2020-04-27T18:58:35.437Z info: App started successfully
+2020-04-27T18:58:35.449Z info: Server started successfully @ 3001
+2020-04-27T18:58:55.856Z info: connection to config db successful.
+2020-04-27T18:58:55.862Z info: Middleware initiated
+2020-04-27T18:58:55.871Z info: App started successfully
+2020-04-27T18:58:55.883Z info: Server started successfully @ 3001
+2020-04-27T18:58:59.272Z info: GET ALL: CategoryController
+2020-04-27T18:58:59.283Z error: SQLITE_ERROR: no such table: t_category
+2020-04-27T19:00:17.796Z info: connection to config db successful.
+2020-04-27T19:00:17.803Z info: Middleware initiated
+2020-04-27T19:00:17.803Z info: App started successfully
+2020-04-27T19:00:17.816Z info: Server started successfully @ 3001
+2020-04-27T19:00:37.833Z info: GET ALL: CategoryController
+2020-04-28T15:08:59.906Z info: connection to config db successful.
+2020-04-28T15:08:59.915Z info: Middleware initiated
+2020-04-28T15:08:59.915Z info: App started successfully
+2020-04-28T15:08:59.933Z info: Server started successfully @ 3001
+2020-04-28T15:12:52.355Z info: connection to config db successful.
+2020-04-28T15:12:52.362Z info: Middleware initiated
+2020-04-28T15:12:52.362Z info: App started successfully
+2020-04-28T15:12:52.375Z info: Server started successfully @ 3001
+2020-04-28T15:20:36.585Z info: connection to config db successful.
+2020-04-28T15:20:36.592Z info: Middleware initiated
+2020-04-28T15:20:36.603Z info: App started successfully
+2020-04-28T15:20:36.615Z info: Server started successfully @ 3001
+2020-04-28T15:23:22.899Z info: connection to config db successful.
+2020-04-28T15:23:22.905Z info: Middleware initiated
+2020-04-28T15:23:22.918Z info: App started successfully
+2020-04-28T15:23:22.930Z info: Server started successfully @ 3001
+2020-04-28T15:24:35.112Z info: connection to config db successful.
+2020-04-28T15:24:35.142Z info: Middleware initiated
+2020-04-28T15:24:35.142Z info: App started successfully
+2020-04-28T15:24:35.157Z info: Server started successfully @ 3001
+2020-04-28T15:24:58.774Z info: connection to config db successful.
+2020-04-28T15:24:58.781Z info: Middleware initiated
+2020-04-28T15:24:58.794Z info: App started successfully
+2020-04-28T15:24:58.807Z info: Server started successfully @ 3001
+2020-04-28T15:25:18.511Z info: connection to config db successful.
+2020-04-28T15:25:18.520Z info: Middleware initiated
+2020-04-28T15:25:18.520Z info: App started successfully
+2020-04-28T15:25:18.538Z info: Server started successfully @ 3001
+2020-04-28T15:25:24.637Z info: connection to config db successful.
+2020-04-28T15:25:24.644Z info: Middleware initiated
+2020-04-28T15:25:24.654Z info: App started successfully
+2020-04-28T15:25:24.667Z info: Server started successfully @ 3001
+2020-04-28T15:25:46.586Z info: connection to config db successful.
+2020-04-28T15:25:46.593Z info: Middleware initiated
+2020-04-28T15:25:46.594Z info: App started successfully
+2020-04-28T15:25:46.607Z info: Server started successfully @ 3001
+2020-04-28T15:26:43.593Z info: connection to config db successful.
+2020-04-28T15:26:43.601Z info: Middleware initiated
+2020-04-28T15:26:43.601Z info: App started successfully
+2020-04-28T15:26:43.614Z info: Server started successfully @ 3001
+2020-04-28T15:34:25.974Z info: connection to config db successful.
+2020-04-28T15:34:25.980Z info: Middleware initiated
+2020-04-28T15:34:25.990Z info: App started successfully
+2020-04-28T15:34:26.002Z info: Server started successfully @ 3001
+2020-04-28T15:44:34.762Z info: connection to config db successful.
+2020-04-28T15:44:34.768Z info: Middleware initiated
+2020-04-28T15:44:34.769Z info: App started successfully
+2020-04-28T15:44:34.780Z error:  Server initialization error: Error: listen EADDRINUSE: address already in use 0.0.0.0:3001
+2020-04-28T15:49:27.013Z info: connection to config db successful.
+2020-04-28T15:49:27.020Z info: Middleware initiated
+2020-04-28T15:49:27.020Z info: App started successfully
+2020-04-28T15:49:27.032Z info: Server started successfully @ 3001
+2020-04-28T16:02:48.216Z info: connection to config db successful.
+2020-04-28T16:02:48.221Z info: Middleware initiated
+2020-04-28T16:02:48.221Z info: App started successfully
+2020-04-28T16:02:48.233Z info: Server started successfully @ 3001
+2020-04-28T16:03:08.076Z info: connection to config db successful.
+2020-04-28T16:03:08.082Z info: Middleware initiated
+2020-04-28T16:03:08.083Z info: App started successfully
+2020-04-28T16:03:08.095Z error:  Server initialization error: Error: listen EADDRINUSE: address already in use 0.0.0.0:3001
+2020-04-29T15:25:48.656Z info: connection to config db successful.
+2020-04-29T15:25:48.661Z info: Middleware initiated
+2020-04-29T15:25:48.662Z info: App started successfully
+2020-04-29T15:25:48.674Z error:  Server initialization error: Error: listen EADDRINUSE: address already in use 0.0.0.0:3001
+2020-05-02T04:47:33.116Z info: connection to config db successful.
+2020-05-02T04:47:33.122Z info: Middleware initiated
+2020-05-02T04:47:33.122Z info: App started successfully
+2020-05-02T04:47:33.135Z info: Server started successfully @ 3001
+2020-05-09T11:43:53.397Z info: Middleware initiated
+2020-05-09T11:43:53.400Z info: App started successfully
+2020-05-09T11:43:53.414Z error:  Server initialization error: Error: listen EADDRINUSE: address already in use 0.0.0.0:3001
+2020-05-09T11:45:49.679Z info: Middleware initiated
+2020-05-09T11:45:49.683Z info: App started successfully
+2020-05-09T11:45:49.696Z info: Server started successfully @ 3001
+2020-05-09T11:49:58.131Z info: Middleware initiated
+2020-05-09T11:49:58.134Z info: App started successfully
+2020-05-09T11:49:58.150Z info: Server started successfully @ 3001
+2020-05-09T11:51:08.196Z info: Middleware initiated
+2020-05-09T11:51:08.200Z info: App started successfully
+2020-05-09T11:51:08.214Z info: Server started successfully @ 3001
+2020-05-09T11:51:35.527Z info: Middleware initiated
+2020-05-09T11:51:35.531Z info: App started successfully
+2020-05-09T11:51:35.545Z info: Server started successfully @ 3001
+2020-05-09T11:51:35.608Z info: connection to config db successful.
+2020-05-09T11:53:03.727Z info: Middleware initiated
+2020-05-09T11:53:03.731Z info: App started successfully
+2020-05-09T11:53:03.744Z info: Server started successfully @ 3001
+2020-05-09T11:53:03.790Z info: connection to config db successful.
+2020-05-09T11:53:48.180Z info: Middleware initiated
+2020-05-09T11:53:48.183Z info: App started successfully
+2020-05-09T11:53:48.198Z info: Server started successfully @ 3001
+2020-05-09T11:53:48.238Z info: connection to config db successful.
+2020-05-09T11:54:03.167Z info: Middleware initiated
+2020-05-09T11:54:03.170Z info: App started successfully
+2020-05-09T11:54:03.184Z info: Server started successfully @ 3001
+2020-05-09T11:54:03.231Z info: connection to config db successful.
+2020-05-09T11:57:14.612Z info: Middleware initiated
+2020-05-09T11:57:14.615Z info: App started successfully
+2020-05-09T11:57:14.628Z info: Server started successfully @ 3001
+2020-05-09T11:57:14.674Z info: connection to config db successful.
+2020-05-09T11:57:26.869Z info: Middleware initiated
+2020-05-09T11:57:26.872Z info: App started successfully
+2020-05-09T11:57:26.887Z info: Server started successfully @ 3001
+2020-05-09T11:57:26.942Z info: connection to config db successful.
+2020-05-09T12:17:23.040Z info: Middleware initiated
+2020-05-09T12:17:23.043Z info: App started successfully
+2020-05-09T12:17:23.060Z info: Server started successfully @ 3001
+2020-05-09T12:17:23.102Z info: connection to config db successful.
+2020-05-09T12:19:03.914Z info: Middleware initiated
+2020-05-09T12:19:03.917Z info: App started successfully
+2020-05-09T12:19:03.930Z info: Server started successfully @ 3001
+2020-05-09T12:19:03.986Z info: connection to config db successful.
+2020-05-09T12:19:13.314Z info: Middleware initiated
+2020-05-09T12:19:13.317Z info: App started successfully
+2020-05-09T12:19:13.331Z info: Server started successfully @ 3001
+2020-05-09T12:19:13.373Z info: connection to config db successful.
+2020-05-09T13:25:41.820Z info: Middleware initiated
+2020-05-09T13:25:41.877Z info: Server started successfully @ 3001
+2020-05-09T13:25:42.334Z info: connection to config db successful.
+2020-05-09T13:25:53.555Z info: Middleware initiated
+2020-05-09T13:25:53.581Z info: Server started successfully @ 3001
+2020-05-09T13:25:53.941Z info: connection to config db successful.
+2020-05-09T13:33:39.811Z info: Middleware initiated
+2020-05-09T13:33:39.838Z info: Server started successfully @ 3001
+2020-05-09T13:33:40.221Z info: connection to config db successful.
+2020-05-09T13:50:49.291Z info: Middleware initiated
+2020-05-09T13:50:49.315Z info: Server started successfully @ 3001
+2020-05-09T13:50:49.659Z info: connection to config db successful.
+2020-05-09T13:59:14.072Z info: Middleware initiated
+2020-05-09T13:59:14.097Z info: Server started successfully @ 3001
+2020-05-09T13:59:14.422Z info: connection to config db successful.
+2020-05-09T14:00:37.136Z info: Middleware initiated
+2020-05-09T14:00:37.162Z info: Server started successfully @ 3001
+2020-05-09T14:00:37.514Z info: connection to config db successful.
+2020-05-09T14:16:18.695Z info: Middleware initiated
+2020-05-09T14:16:18.719Z info: Server started successfully @ 3001
+2020-05-09T14:16:19.079Z info: connection to config db successful.
+2020-05-09T14:18:36.109Z info: Middleware initiated
+2020-05-09T14:18:36.136Z info: Server started successfully @ 3001
+2020-05-09T14:18:36.638Z info: connection to config db successful.
+2020-05-09T14:19:19.060Z info: Middleware initiated
+2020-05-09T14:19:19.085Z info: Server started successfully @ 3001
+2020-05-09T14:19:19.591Z info: connection to config db successful.
+2020-05-09T16:31:46.351Z info: Middleware initiated
+2020-05-09T16:31:46.377Z info: Server started successfully @ 3001
+2020-05-09T16:31:46.815Z info: connection to config db successful.
+2020-05-09T16:32:28.006Z info: Middleware initiated
+2020-05-09T16:32:28.034Z info: Server started successfully @ 3001
+2020-05-09T16:32:28.546Z info: connection to config db successful.
+2020-05-09T20:34:38.372Z info: Middleware initiated
+2020-05-09T20:34:38.397Z info: Server started successfully @ 3001
+2020-05-09T20:34:39.098Z info: connection to config db successful.
+2020-05-09T20:35:43.233Z info: Middleware initiated
+2020-05-09T20:35:43.258Z info: Server started successfully @ 3001
+2020-05-09T20:35:43.750Z info: connection to config db successful.
+2020-05-09T20:55:18.261Z info: Middleware initiated
+2020-05-09T20:55:18.288Z info: Server started successfully @ 3001
+2020-05-09T20:55:18.727Z info: connection to config db successful.
+2020-05-09T21:00:54.764Z info: Middleware initiated
+2020-05-09T21:00:54.790Z info: Server started successfully @ 3001
+2020-05-09T21:00:55.298Z info: connection to config db successful.
+2020-05-09T21:01:36.212Z info: Middleware initiated
+2020-05-09T21:01:36.238Z info: Server started successfully @ 3001
+2020-05-09T21:01:36.750Z info: connection to config db successful.
+2020-05-09T21:01:42.002Z info: Middleware initiated
+2020-05-09T21:01:42.027Z info: Server started successfully @ 3001
+2020-05-09T21:01:42.473Z info: connection to config db successful.
+2020-05-09T21:02:49.806Z info: Middleware initiated
+2020-05-09T21:02:49.832Z info: Server started successfully @ 3001
+2020-05-09T21:02:50.348Z info: connection to config db successful.
+2020-05-09T21:03:00.294Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/api/category.query.ts[0m:[93m5[0m:[93m7[0m - [91merror[0m[90m TS7022: [0m'PacifyCategoryGraphQlObject' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.
+
+[7m5[0m const PacifyCategoryGraphQlObject = new GraphQLObjectType<PacifyCategory, PacifyCategory>({
+[7m [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/api/category.query.ts[0m:[93m5[0m:[93m7[0m - [91merror[0m[90m TS7022: [0m'PacifyCategoryGraphQlObject' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.
+
+[7m5[0m const PacifyCategoryGraphQlObject = new GraphQLObjectType<PacifyCategory, PacifyCategory>({
+[7m [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+    at createTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\root.query.ts:3:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+2020-05-09T21:05:04.921Z info: Middleware initiated
+2020-05-09T21:05:04.947Z info: Server started successfully @ 3001
+2020-05-09T21:05:05.302Z info: connection to config db successful.
+2020-05-09T21:06:47.293Z info: Middleware initiated
+2020-05-09T21:06:47.321Z info: Server started successfully @ 3001
+2020-05-09T21:06:47.782Z info: connection to config db successful.
+2020-05-10T06:22:42.834Z info: Database connection successful.
+2020-05-10T06:23:27.733Z info: Database connection successful.
+2020-05-10T06:24:59.000Z info: Database connection successful.
+2020-05-10T06:25:05.093Z info: Database connection successful.
+2020-05-10T06:33:18.854Z info: Database connection successful.
+2020-05-10T06:34:00.086Z info: Database connection successful.
+2020-05-10T07:25:18.626Z info: Database connection successful.
+2020-05-10T07:27:06.721Z info: Middleware initiated
+2020-05-10T07:27:06.744Z info: Server started successfully @ 3001
+2020-05-10T07:27:07.189Z info: Database connection successful.
+2020-05-10T07:27:29.520Z info: Database connection successful.
+2020-05-10T07:27:29.524Z info: Middleware initiated
+2020-05-10T07:27:29.535Z info: Server started successfully @ 3001
+2020-05-10T07:27:51.987Z info: Database connection successful.
+2020-05-10T07:27:51.991Z info: Middleware initiated
+2020-05-10T07:27:51.997Z info: Server started successfully @ 3001
+2020-05-10T07:28:26.109Z info: Database connection successful.
+2020-05-10T07:28:26.121Z info: Middleware initiated
+2020-05-10T07:28:26.127Z info: Server started successfully @ 3001
+2020-05-10T07:29:43.723Z info: Database connection successful.
+2020-05-10T07:29:43.738Z info: Middleware initiated
+2020-05-10T07:29:43.745Z info: Server started successfully @ 3001
+2020-05-10T12:19:39.299Z info: Database connection successful.
+2020-05-10T12:19:39.304Z info: Middleware initiated
+2020-05-10T12:19:39.311Z info: Server started successfully @ 3001
+2020-05-10T13:41:30.757Z info: Database connection successful.
+2020-05-10T13:41:30.764Z info: Middleware initiated
+2020-05-10T13:41:30.771Z info: Server started successfully @ 3001
+2020-05-10T13:43:47.048Z info: Database connection successful.
+2020-05-10T13:43:47.063Z info: Middleware initiated
+2020-05-10T13:43:47.069Z info: Server started successfully @ 3001
+2020-05-10T13:44:27.728Z info: Database connection successful.
+2020-05-10T13:44:27.733Z info: Middleware initiated
+2020-05-10T13:44:27.749Z info: Server started successfully @ 3001
+2020-05-10T13:50:25.839Z info: Database connection successful.
+2020-05-10T13:50:25.844Z info: Middleware initiated
+2020-05-10T13:50:25.851Z info: Server started successfully @ 3001
+2020-05-10T13:51:48.273Z info: Database connection successful.
+2020-05-10T13:51:48.278Z info: Middleware initiated
+2020-05-10T13:51:48.292Z info: Server started successfully @ 3001
+2020-05-10T13:52:07.788Z info: Database connection successful.
+2020-05-10T13:52:07.793Z info: Middleware initiated
+2020-05-10T13:52:07.808Z info: Server started successfully @ 3001
+2020-05-10T15:37:30.400Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/config/config.development.ts[0m:[93m3[0m:[93m7[0m - [91merror[0m[90m TS2741: [0mProperty 'db' is missing in type '{ server: { host: string; port: number; }; }' but required in type 'ConfigInterface'.
+
+[7m3[0m const configDev: ConfigInterface = {
+[7m [0m [91m      ~~~~~~~~~[0m
+
+  [96msrc/config/config.ts[0m:[93m8[0m:[93m2[0m
+    [7m8[0m  db: {
+    [7m [0m [96m ~~[0m
+    'db' is declared here.
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/config/config.development.ts[0m:[93m3[0m:[93m7[0m - [91merror[0m[90m TS2741: [0mProperty 'db' is missing in type '{ server: { host: string; port: number; }; }' but required in type 'ConfigInterface'.
+
+[7m3[0m const configDev: ConfigInterface = {
+[7m [0m [91m      ~~~~~~~~~[0m
+
+  [96msrc/config/config.ts[0m:[93m8[0m:[93m2[0m
+    [7m8[0m  db: {
+    [7m [0m [96m ~~[0m
+    'db' is declared here.
+
+    at createTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-05-10T15:38:35.840Z info: Database connection successful.
+2020-05-10T15:38:35.845Z info: Middleware initiated
+2020-05-10T15:38:35.851Z info: Server started successfully @ 3001
+2020-05-10T15:38:43.718Z info: Database connection successful.
+2020-05-10T15:38:43.722Z info: Middleware initiated
+2020-05-10T15:38:43.728Z info: Server started successfully @ 3001
+2020-05-10T15:39:03.780Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/config/config.development.ts[0m:[93m10[0m:[93m4[0m - [91merror[0m[90m TS2322: [0mType '{ type: string; name: string; host: string; user: string; pass: string; }' is not assignable to type '{ name: string; host: string; user: string; pass: string; }'.
+  Object literal may only specify known properties, and 'type' does not exist in type '{ name: string; host: string; user: string; pass: string; }'.
+
+[7m10[0m  		type: 'mysql',
+[7m  [0m [91m 		~~~~~~~~~~~~~[0m
+
+  [96msrc/config/config.ts[0m:[93m9[0m:[93m3[0m
+    [7m9[0m  	static: {
+    [7m [0m [96m 	~~~~~~[0m
+    The expected type comes from property 'static' which is declared here on type '{ static: { name: string; host: string; user: string; pass: string; }; }'
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/config/config.development.ts[0m:[93m10[0m:[93m4[0m - [91merror[0m[90m TS2322: [0mType '{ type: string; name: string; host: string; user: string; pass: string; }' is not assignable to type '{ name: string; host: string; user: string; pass: string; }'.
+  Object literal may only specify known properties, and 'type' does not exist in type '{ name: string; host: string; user: string; pass: string; }'.
+
+[7m10[0m  		type: 'mysql',
+[7m  [0m [91m 		~~~~~~~~~~~~~[0m
+
+  [96msrc/config/config.ts[0m:[93m9[0m:[93m3[0m
+    [7m9[0m  	static: {
+    [7m [0m [96m 	~~~~~~[0m
+    The expected type comes from property 'static' which is declared here on type '{ static: { name: string; host: string; user: string; pass: string; }; }'
+
+    at createTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-05-10T15:39:13.140Z info: Database connection successful.
+2020-05-10T15:39:13.145Z info: Middleware initiated
+2020-05-10T15:39:13.151Z info: Server started successfully @ 3001
+2020-05-10T15:39:26.711Z error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/config/config.development.ts[0m:[93m9[0m:[93m3[0m - [91merror[0m[90m TS2741: [0mProperty 'port' is missing in type '{ type: string; name: string; host: string; user: string; pass: string; }' but required in type '{ type: string; name: string; host: string; port: number; user: string; pass: string; }'.
+
+[7m9[0m  	static: {
+[7m [0m [91m 	~~~~~~[0m
+
+  [96msrc/config/config.ts[0m:[93m13[0m:[93m4[0m
+    [7m13[0m  		port: number;
+    [7m  [0m [96m 		~~~~[0m
+    'port' is declared here.
+  [96msrc/config/config.ts[0m:[93m9[0m:[93m3[0m
+    [7m9[0m  	static: {
+    [7m [0m [96m 	~~~~~~[0m
+    The expected type comes from property 'static' which is declared here on type '{ static: { type: string; name: string; host: string; port: number; user: string; pass: string; }; }'
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/config/config.development.ts[0m:[93m9[0m:[93m3[0m - [91merror[0m[90m TS2741: [0mProperty 'port' is missing in type '{ type: string; name: string; host: string; user: string; pass: string; }' but required in type '{ type: string; name: string; host: string; port: number; user: string; pass: string; }'.
+
+[7m9[0m  	static: {
+[7m [0m [91m 	~~~~~~[0m
+
+  [96msrc/config/config.ts[0m:[93m13[0m:[93m4[0m
+    [7m13[0m  		port: number;
+    [7m  [0m [96m 		~~~~[0m
+    'port' is declared here.
+  [96msrc/config/config.ts[0m:[93m9[0m:[93m3[0m
+    [7m9[0m  	static: {
+    [7m [0m [96m 	~~~~~~[0m
+    The expected type comes from property 'static' which is declared here on type '{ static: { type: string; name: string; host: string; port: number; user: string; pass: string; }; }'
+
+    at createTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:423:12)
+    at reportTSError (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:427:19)
+    at getOutput (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:554:36)
+    at Object.compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:760:32)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:43)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Object.require.extensions.(anonymous function) [as .ts] (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:842:12)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+2020-05-10T15:39:34.357Z info: Database connection successful.
+2020-05-10T15:39:34.361Z info: Middleware initiated
+2020-05-10T15:39:34.369Z info: Server started successfully @ 3001
+2020-05-10T15:41:35.005Z info: Database connection successful.
+2020-05-10T15:41:35.010Z info: Middleware initiated
+2020-05-10T15:41:35.016Z info: Server started successfully @ 3001
+2020-05-10T15:41:39.328Z info: Database connection successful.
+2020-05-10T15:41:39.337Z info: Middleware initiated
+2020-05-10T15:41:39.343Z info: Server started successfully @ 3001
+2020-05-10T15:44:40.072Z info: Database connection successful.
+2020-05-10T15:44:40.076Z info: Middleware initiated
+2020-05-10T15:44:40.091Z info: Server started successfully @ 3001
+2020-05-10T15:45:51.088Z info: Database connection successful.
+2020-05-10T15:45:51.103Z info: Middleware initiated
+2020-05-10T15:45:51.109Z info: Server started successfully @ 3001
+2020-05-10T15:46:18.038Z info: Database connection successful.
+2020-05-10T15:46:18.042Z info: Middleware initiated
+2020-05-10T15:46:18.049Z info: Server started successfully @ 3001
+2020-05-10T15:49:03.043Z info: Database connection successful.
+2020-05-10T15:49:03.048Z info: Middleware initiated
+2020-05-10T15:49:03.053Z info: Server started successfully @ 3001
+2020-05-10T15:59:38.903Z error: uncaughtException: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+Error: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+    at Object.findType (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\findType.js:16:15)
+    at Object.getResolverMetadata (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\resolver-metadata.js:9:49)
+    at Mutation (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\decorators\Mutation.js:9:46)
+    at DecorateProperty (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:553:33)
+    at Object.decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:123:24)
+    at __decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:4:92)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:22:2)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2020-05-10T16:00:40.208Z error: uncaughtException: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+Error: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+    at Object.findType (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\findType.js:16:15)
+    at Object.getResolverMetadata (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\resolver-metadata.js:9:49)
+    at Mutation (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\decorators\Mutation.js:9:46)
+    at DecorateProperty (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:553:33)
+    at Object.decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:123:24)
+    at __decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:4:92)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:22:2)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2020-05-10T16:01:26.598Z error: uncaughtException: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+Error: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+    at Object.findType (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\findType.js:16:15)
+    at Object.getResolverMetadata (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\resolver-metadata.js:9:49)
+    at Mutation (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\decorators\Mutation.js:9:46)
+    at DecorateProperty (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:553:33)
+    at Object.decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:123:24)
+    at __decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:4:92)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:22:2)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2020-05-10T16:01:45.515Z error: uncaughtException: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+Error: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+    at Object.findType (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\findType.js:16:15)
+    at Object.getResolverMetadata (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\resolver-metadata.js:9:49)
+    at Mutation (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\decorators\Mutation.js:9:46)
+    at DecorateProperty (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:553:33)
+    at Object.decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:123:24)
+    at __decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:4:92)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:22:2)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2020-05-10T16:01:57.561Z error: uncaughtException: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+Error: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+    at Object.findType (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\findType.js:16:15)
+    at Object.getResolverMetadata (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\resolver-metadata.js:9:49)
+    at Mutation (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\decorators\Mutation.js:9:46)
+    at DecorateProperty (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:553:33)
+    at Object.decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:123:24)
+    at __decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:4:92)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:22:2)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2020-05-10T16:03:06.206Z error: uncaughtException: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+Error: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+    at Object.findType (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\findType.js:16:15)
+    at Object.getResolverMetadata (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\resolver-metadata.js:9:49)
+    at Mutation (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\decorators\Mutation.js:9:46)
+    at DecorateProperty (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:553:33)
+    at Object.decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:123:24)
+    at __decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:4:92)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:22:2)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2020-05-10T16:03:20.258Z info: Database connection successful.
+2020-05-10T16:03:20.262Z info: Middleware initiated
+2020-05-10T16:03:20.277Z info: Server started successfully @ 3001
+2020-05-10T16:03:29.653Z error: uncaughtException: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+Error: Unable to infer GraphQL type from TypeScript reflection system. You need to provide explicit type for 'addCategory' of 'PacifyCategoryResolver' class.
+    at Object.findType (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\findType.js:16:15)
+    at Object.getResolverMetadata (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\helpers\resolver-metadata.js:9:49)
+    at Mutation (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\type-graphql\dist\decorators\Mutation.js:9:46)
+    at DecorateProperty (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:553:33)
+    at Object.decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\reflect-metadata\Reflect.js:123:24)
+    at __decorate (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:4:92)
+    at Object.<anonymous> (C:\Users\Plochie\Documents\projects\pacify\pacify-server\src\api\resolver\category.resolver.ts:22:2)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Module.m._compile (C:\Users\Plochie\Documents\projects\pacify\pacify-server\node_modules\ts-node\src\index.ts:839:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+2020-05-10T16:03:34.938Z info: Database connection successful.
+2020-05-10T16:03:34.943Z info: Middleware initiated
+2020-05-10T16:03:34.957Z info: Server started successfully @ 3001
+2020-05-10T16:03:59.056Z info: Database connection successful.
+2020-05-10T16:03:59.060Z info: Middleware initiated
+2020-05-10T16:03:59.078Z info: Server started successfully @ 3001
+2020-05-11T16:31:44.321Z info: Database connection successful.
+2020-05-11T16:31:44.326Z info: Middleware initiated
+2020-05-11T16:31:44.337Z info: Server started successfully @ 3001
+2020-05-11T17:46:37.367Z info: Database connection successful.
+2020-05-11T17:46:37.372Z info: Middleware initiated
+2020-05-11T17:46:37.378Z info: Server started successfully @ 3001
+2020-05-11T17:48:23.814Z info: Database connection successful.
+2020-05-11T17:48:23.818Z info: Middleware initiated
+2020-05-11T17:48:23.830Z info: Server started successfully @ 3001
+2020-05-11T17:56:59.771Z info: Database connection successful.
+2020-05-11T17:56:59.776Z info: Middleware initiated
+2020-05-11T17:56:59.789Z info: Server started successfully @ 3001
+2020-05-11T18:15:11.652Z info: Database connection successful.
+2020-05-11T18:15:11.656Z info: Middleware initiated
+2020-05-11T18:15:11.667Z info: Server started successfully @ 3001
+2020-05-11T18:23:20.556Z info: Database connection successful.
+2020-05-11T18:23:20.560Z info: Middleware initiated
+2020-05-11T18:23:20.572Z info: Server started successfully @ 3001
+2020-05-11T18:29:33.526Z info: Database connection successful.
+2020-05-11T18:29:33.531Z info: Middleware initiated
+2020-05-11T18:29:33.544Z info: Server started successfully @ 3001
+2020-05-11T18:30:00.841Z info: Database connection successful.
+2020-05-11T18:30:00.846Z info: Middleware initiated
+2020-05-11T18:30:00.851Z info: Server started successfully @ 3001
+2020-05-11T18:30:37.889Z info: Database connection successful.
+2020-05-11T18:30:37.894Z info: Middleware initiated
+2020-05-11T18:30:37.907Z info: Server started successfully @ 3001
+2020-05-11T18:30:52.218Z info: Database connection successful.
+2020-05-11T18:30:52.223Z info: Middleware initiated
+2020-05-11T18:30:52.235Z info: Server started successfully @ 3001
+2020-05-11T18:31:04.857Z info: Database connection successful.
+2020-05-11T18:31:04.861Z info: Middleware initiated
+2020-05-11T18:31:04.874Z info: Server started successfully @ 3001
+2020-05-11T18:37:24.035Z info: Database connection successful.
+2020-05-11T18:37:24.039Z info: Middleware initiated
+2020-05-11T18:37:24.045Z info: Server started successfully @ 3001
+2020-05-11T18:37:32.210Z info: Database connection successful.
+2020-05-11T18:37:32.215Z info: Middleware initiated
+2020-05-11T18:37:32.221Z info: Server started successfully @ 3001
+2020-05-11T18:38:17.501Z info: Database connection successful.
+2020-05-11T18:38:17.505Z info: Middleware initiated
+2020-05-11T18:38:17.511Z info: Server started successfully @ 3001
+2020-05-11T18:39:06.053Z info: Database connection successful.
+2020-05-11T18:39:06.057Z info: Middleware initiated
+2020-05-11T18:39:06.063Z info: Server started successfully @ 3001
+2020-05-11T18:41:40.775Z info: Database connection successful.
+2020-05-11T18:41:40.779Z info: Middleware initiated
+2020-05-11T18:41:40.785Z info: Server started successfully @ 3001
+2020-05-11T18:43:23.155Z info: Database connection successful.
+2020-05-11T18:43:23.160Z info: Middleware initiated
+2020-05-11T18:43:23.166Z info: Server started successfully @ 3001
+2020-05-15T06:11:20.701Z info: Database connection successful.
+2020-05-15T06:11:20.706Z info: Middleware initiated
+2020-05-15T06:11:20.711Z info: Server started successfully @ 3001
+2020-05-15T06:21:39.114Z info: Database connection successful.
+2020-05-15T06:21:39.118Z info: Middleware initiated
+2020-05-15T06:21:39.124Z info: Server started successfully @ 3001
+2020-05-15T13:48:08.122Z info: Database connection successful.
+2020-05-15T13:48:08.127Z info: Middleware initiated
+2020-05-15T13:48:08.142Z info: Server started successfully @ 3001
+2020-05-15T13:54:54.322Z info: Database connection successful.
+2020-05-15T13:54:54.327Z info: Middleware initiated
+2020-05-15T13:54:54.341Z info: Server started successfully @ 3001
+2020-05-15T13:55:35.037Z info: Database connection successful.
+2020-05-15T13:55:35.041Z info: Middleware initiated
+2020-05-15T13:55:35.047Z info: Server started successfully @ 3001
+2020-05-15T14:10:56.211Z info: Database connection successful.
+2020-05-15T14:10:56.216Z info: Middleware initiated
+2020-05-15T14:10:56.228Z info: Server started successfully @ 3001
+2020-05-15T14:29:03.168Z info: Database connection successful.
+2020-05-15T14:29:03.172Z info: Middleware initiated
+2020-05-15T14:29:03.183Z info: Server started successfully @ 3001
+2020-05-15T18:20:24.056Z info: Database connection successful.
+2020-05-15T18:20:24.061Z info: Middleware initiated
+2020-05-15T18:20:24.074Z info: Server started successfully @ 3001

@@ -1,0 +1,23 @@
+{
+	"files.exclude": {
+		"node_modules": true,
+		"package-lock.json": true,
+		"src\\setupTests.ts": true,
+		"_tuts": true,
+		"src\\react-app-env.d.ts": true,
+		"src\\serviceWorker.ts": true
+	},
+
+	"editor.rulers": [140],
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 4,
+	"editor.trimAutoWhitespace": true,
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": true,
+		"source.fixAll.eslint": true
+	},
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"typescript.preferences.quoteStyle": "single"
+}

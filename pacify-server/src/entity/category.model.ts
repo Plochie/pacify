@@ -5,6 +5,7 @@ import Module from './module.model';
 @ObjectType()
 @Entity({ name: 'category' })
 class PacifyCategory {
+	@Field()
 	@PrimaryGeneratedColumn()
 	id: number;
 

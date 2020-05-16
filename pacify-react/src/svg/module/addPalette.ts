@@ -1,6 +1,5 @@
 import * as d3 from 'd3';
 import { Subject } from 'rxjs';
-import 'src/App.scss';
 import { CLASS } from 'src/constants/CLASS';
 import { ModuleProperties } from 'src/entities';
 import DragHandler from 'src/svg/GroupDragHandler';

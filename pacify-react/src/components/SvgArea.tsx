@@ -10,8 +10,14 @@ import { SvgSvgElement } from 'src/svg/types';
 
 // TODO: remove this
 const generateTestingUI = (d3Svg: any) => {
-
-	const test1 = addPalette(d3Svg, { title: 'Module 1', x: 400, y: 50, width: 140, height: 50, icon: `${process.env.PUBLIC_URL}/logo192.png` });
+	const test1 = addPalette(d3Svg, {
+		title: 'Module 1',
+		x: 400,
+		y: 50,
+		width: 140,
+		height: 50,
+		icon: `${process.env.PUBLIC_URL}/logo192.png`,
+	});
 	const test2 = addPalette(d3Svg, { title: 'Module 2', x: 100, y: 200, width: 140, height: 50 });
 	const test3 = addPalette(d3Svg, { title: 'Module 3', x: 700, y: 350, width: 140, height: 50 });
 	addPalette(d3Svg, { title: 'Module 3', x: 400, y: 500, width: 140, height: 50 });
@@ -19,11 +25,9 @@ const generateTestingUI = (d3Svg: any) => {
 	connectPalettes(test2.output.node() as any, test1.input.node() as any);
 	connectPalettes(test1.output.node() as any, test3.input.node() as any);
 	connectPalettes(test2.output.node() as any, test3.input.node() as any);
-}
-
+};
 
 function SvgArea() {
-
 	const svgRef = useRef<SVGSVGElement>(null);
 	// eslint-disable-next-line
 	const [svgState, setSvgState] = useState<SvgSvgElement>();
@@ -45,11 +49,10 @@ function SvgArea() {
 		return () => pathContextMenuSubject.unsubscribe();
 	}, []);
 
-
 	return (
 		<>
-			<div className='svg-area-wrapper'>
-				<svg ref={svgRef} id='svgArea'>
+			<div className="svg-area-wrapper">
+				<svg ref={svgRef} id="svgArea">
 					<g id={CLASS.CONNECTION.ID} />
 				</svg>
 				<br />

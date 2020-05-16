@@ -1,10 +1,9 @@
 import { buildSchema } from 'type-graphql';
-import PacifyCategoryResolver from './resolver/category.resolver';
 
 // const SchemaGraphQl = new GraphQLSchema({ query: RootQuery });
 
 const SchemaGraphQl = buildSchema({
-	resolvers: [PacifyCategoryResolver],
+	resolvers: [__dirname + '/resolvers/**/*.resolver.{ts,js}'],
 });
 
 export default SchemaGraphQl;

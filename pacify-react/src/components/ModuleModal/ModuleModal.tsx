@@ -1,6 +1,5 @@
 import { Modal } from 'antd';
 import React from 'react';
-import 'src/App.scss';
 
 interface ModuleModalProps {
 	isVisible: boolean;

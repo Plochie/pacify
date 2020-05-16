@@ -858,3 +858,45 @@ Error: Unable to infer GraphQL type from TypeScript reflection system. You need 
 2020-05-15T18:20:24.056Z info: Database connection successful.
 2020-05-15T18:20:24.061Z info: Middleware initiated
 2020-05-15T18:20:24.074Z info: Server started successfully @ 3001
+2020-05-16T04:12:59.572Z info: Database connection successful.
+2020-05-16T04:12:59.577Z info: Middleware initiated
+2020-05-16T04:12:59.583Z info: Server started successfully @ 3001
+2020-05-16T04:51:54.328Z info: Database connection successful.
+2020-05-16T04:51:54.332Z info: Middleware initiated
+2020-05-16T04:51:54.338Z info: Server started successfully @ 3001
+2020-05-16T06:24:56.932Z info: Database connection successful.
+2020-05-16T06:24:56.937Z info: Middleware initiated
+2020-05-16T06:24:56.943Z info: Server started successfully @ 3001
+2020-05-16T06:25:06.173Z info: Database connection successful.
+2020-05-16T06:25:06.178Z info: Middleware initiated
+2020-05-16T06:25:06.190Z info: Server started successfully @ 3001
+2020-05-16T11:14:34.853Z info: Database connection successful.
+2020-05-16T11:14:34.859Z info: Middleware initiated
+2020-05-16T11:14:34.904Z info: Server started successfully @ 3001
+2020-05-16T11:17:23.041Z info: Database connection successful.
+2020-05-16T11:17:23.046Z info: Middleware initiated
+2020-05-16T11:17:23.057Z info: Server started successfully @ 3001
+2020-05-16T11:18:44.355Z info: Database connection successful.
+2020-05-16T11:18:44.360Z info: Middleware initiated
+2020-05-16T11:18:44.366Z info: Server started successfully @ 3001
+2020-05-16T11:20:39.853Z info: Database connection successful.
+2020-05-16T11:20:39.858Z info: Middleware initiated
+2020-05-16T11:20:39.864Z info: Server started successfully @ 3001
+2020-05-16T11:21:21.816Z info: Database connection successful.
+2020-05-16T11:21:21.820Z info: Middleware initiated
+2020-05-16T11:21:21.826Z info: Server started successfully @ 3001
+2020-05-16T11:21:45.787Z info: Database connection successful.
+2020-05-16T11:21:45.791Z info: Middleware initiated
+2020-05-16T11:21:45.797Z info: Server started successfully @ 3001
+2020-05-16T11:22:17.319Z info: Database connection successful.
+2020-05-16T11:22:17.324Z info: Middleware initiated
+2020-05-16T11:22:17.334Z info: Server started successfully @ 3001
+2020-05-16T11:26:05.512Z info: Database connection successful.
+2020-05-16T11:26:05.517Z info: Middleware initiated
+2020-05-16T11:26:05.523Z info: Server started successfully @ 3001
+2020-05-16T11:59:43.907Z info: Database connection successful.
+2020-05-16T11:59:43.912Z info: Middleware initiated
+2020-05-16T11:59:43.918Z info: Server started successfully @ 3001
+2020-05-16T14:17:52.504Z info: Database connection successful.
+2020-05-16T14:17:52.508Z info: Middleware initiated
+2020-05-16T14:17:52.515Z info: Server started successfully @ 3001

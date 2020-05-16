@@ -1,22 +1,13 @@
-import { useLazyQuery, useMutation } from '@apollo/react-hooks';
-import { Button, Form, Input, Modal } from 'antd';
+import { useMutation } from '@apollo/react-hooks';
+import { Button, Form, Input, message, Modal } from 'antd';
 import gql from 'graphql-tag';
 import React from 'react';
-import 'src/App.scss';
 
 const ADD_CATEGORY = gql`
-	mutation addCategory($name: String!, $desc: String) {
-		addCategory(name: $name, desc: $desc) {
+	mutation addCategory($name: String!, $sid: String!, $desc: String) {
+		addCategory(name: $name, sid: $sid, desc: $desc) {
 			sid
 			name
-		}
-	}
-`;
-
-const GET_CATEGORY = gql`
-	{
-		categories {
-			sid
 		}
 	}
 `;
@@ -35,18 +26,11 @@ interface AddNewCategoryModalProps {
 }
 
 function AddNewCategoryModal(props: AddNewCategoryModalProps) {
-	const [addCateogry] = useMutation(ADD_CATEGORY);
-	const [getCategories, { loading, data }] = useLazyQuery(GET_CATEGORY);
-
-	if (data) {
-		console.log(data);
-	}
+	const [addCategory] = useMutation(ADD_CATEGORY);
+	const [form] = Form.useForm();
 
 	const handleOk = (e: React.MouseEvent<HTMLElement>) => {
 		e.preventDefault();
-
-		getCategories();
-
 		props.setIsVisible(false);
 	};
 
@@ -55,9 +39,10 @@ function AddNewCategoryModal(props: AddNewCategoryModalProps) {
 	};
 
 	const onSubmit = (values: any) => {
-		addCateogry({ variables: values })
+		addCategory({ variables: values })
 			.then(res => {
-				console.log(res);
+				message.success('Category added successfully');
+				form.resetFields();
 			})
 			.catch(err => {
 				console.error(err);
@@ -73,8 +58,19 @@ function AddNewCategoryModal(props: AddNewCategoryModalProps) {
 	return (
 		<div>
 			<Modal visible={props.isVisible} title="Add New Category" onOk={handleOk} onCancel={handleCancel}>
-				<Form {...layout} name="basic" onFinish={onSubmit} onFinishFailed={onSubmitFailed}>
+				<Form {...layout} name="catetgory" form={form} onFinish={onSubmit} onFinishFailed={onSubmitFailed}>
 					<Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please enter name of category' }]}>
+						<Input />
+					</Form.Item>
+
+					<Form.Item
+						label="Short ID"
+						name="sid"
+						rules={[
+							{ required: true, message: 'Please enter Short ID for cateogry' },
+							{ len: 5, message: 'Length of Short ID should be exactly 5' },
+						]}
+					>
 						<Input />
 					</Form.Item>
 

@@ -58,7 +58,7 @@ function AddNewCategoryModal(props: AddNewCategoryModalProps) {
 	return (
 		<div>
 			<Modal visible={props.isVisible} title="Add New Category" onOk={handleOk} onCancel={handleCancel}>
-				<Form {...layout} name="catetgory" form={form} onFinish={onSubmit} onFinishFailed={onSubmitFailed}>
+				<Form {...layout} name="catetgory" form={form} size="small">
 					<Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please enter name of category' }]}>
 						<Input />
 					</Form.Item>

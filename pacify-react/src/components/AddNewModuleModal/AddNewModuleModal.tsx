@@ -1,37 +1,25 @@
 import { DownOutlined } from '@ant-design/icons';
-import { useMutation } from '@apollo/react-hooks';
-import { Button, Checkbox, Dropdown, Form, Input, Menu, message, Modal } from 'antd';
-import gql from 'graphql-tag';
-import React from 'react';
+import { useLazyQuery } from '@apollo/react-hooks';
+import { Button, Col, Dropdown, Form, Input, Menu, Modal, Row } from 'antd';
+import React, { MouseEvent, useEffect, useState } from 'react';
+import { Category, GET_CATEGORIES } from 'src/data/queries/GetCategories';
 
-const ADD_MODULE = gql`
-	mutation addModule($sid: String!, $name: String!, $width: Float!, $height: Float!, $icon: String) {
-		addModule(sid: $sid, name: $name, width: $width, height: $height, icon: $icon) {
-			id
-			sid
-		}
-	}
-`;
+// const ADD_MODULE = gql`
+// 	mutation addModule($sid: String!, $name: String!, $width: Float!, $height: Float!, $icon: String) {
+// 		addModule(sid: $sid, name: $name, width: $width, height: $height, icon: $icon) {
+// 			id
+// 			sid
+// 		}
+// 	}
+// `;
 
 const layout = {
-	// labelCol: { span: 4 },
+	labelCol: { span: 4 },
 	// wrapperCol: { span: 16 },
 };
 const tailLayout = {
 	// wrapperCol: { offset: 8, span: 16 },
 };
-
-const onClick = ({ key }: { key: any }) => {
-	message.info(`Click on item ${key}`);
-};
-
-const menu = (
-	<Menu onClick={onClick}>
-		<Menu.Item key="1">1st menu item</Menu.Item>
-		<Menu.Item key="2">2nd memu item</Menu.Item>
-		<Menu.Item key="3">3rd menu item</Menu.Item>
-	</Menu>
-);
 
 interface AddNewModuleModalProps {
 	isVisible: boolean;
@@ -39,44 +27,83 @@ interface AddNewModuleModalProps {
 }
 
 function AddNewModuleModal(props: AddNewModuleModalProps) {
-	const [addModule] = useMutation(ADD_MODULE);
+	// const [addModule] = useMutation(ADD_MODULE);
+	const [getCategories, { data }] = useLazyQuery<{ categories: Category[] }>(GET_CATEGORIES, { fetchPolicy: 'network-only' });
 
-	const handleOk = (e: React.MouseEvent<HTMLElement>) => {
+	const [selectedCategory, setSelectedCategory] = useState<Category>();
+
+	useEffect(() => {
+		if (props.isVisible) {
+			getCategories();
+		}
+	}, [props.isVisible, getCategories]);
+
+	const onCategoryDropdown = ({ key }: { key: any }) => {
+		// get selected category
+		const category = data?.categories.find(c => c.sid === key);
+		setSelectedCategory(category);
+	};
+
+	const categoryDropdown = (data: { categories: Category[] } | undefined) => {
+		if (data && data.categories) {
+			return (
+				<Menu onClick={onCategoryDropdown}>
+					{data.categories.map(category => {
+						return <Menu.Item key={category.sid}>{category.name}</Menu.Item>;
+					})}
+				</Menu>
+			);
+		} else {
+			return (
+				<Menu onClick={onCategoryDropdown}>
+					<Menu.Item key="_no_category">None categories are defined</Menu.Item>
+				</Menu>
+			);
+		}
+	};
+
+	const handleOk = (e: MouseEvent<HTMLElement>) => {
 		props.setIsVisible(false);
 	};
 
-	const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
+	const handleCancel = (e: MouseEvent<HTMLElement>) => {
 		props.setIsVisible(false);
-	};
-
-	const onFinish = (values: any) => {
-		console.log('Success:', values);
-	};
-
-	const onFinishFailed = (errorInfo: any) => {
-		console.log('Failed:', errorInfo);
 	};
 
 	return (
 		<div>
 			<Modal visible={props.isVisible} title="Add New Module" onOk={handleOk} onCancel={handleCancel}>
-				<Form {...layout} name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed}>
-					<Dropdown overlay={menu}>
-						<a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-							Hover me, Click menu item <DownOutlined />
+				<Form {...layout} name="basic" size="small">
+					<Dropdown overlay={() => categoryDropdown(data)}>
+						<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+							Select Category For Module <DownOutlined />
 						</a>
 					</Dropdown>
+					<span>
+						<strong> {selectedCategory?.name}</strong>
+					</span>
 
-					<Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+					<Form.Item label="Short ID" name="sid" rules={[{ required: true }]}>
 						<Input />
 					</Form.Item>
 
-					<Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
-						<Input.Password />
+					<Form.Item label="Name" name="name" rules={[{ required: true }]}>
+						<Input />
 					</Form.Item>
-
-					<Form.Item {...tailLayout} name="remember" valuePropName="checked">
-						<Checkbox>Remember me</Checkbox>
+					<Row>
+						<Col span={12}>
+							<Form.Item label="Width" name="width" rules={[{ required: true }]}>
+								<Input />
+							</Form.Item>
+						</Col>
+						<Col span={12}>
+							<Form.Item label="Height" name="height" rules={[{ required: true }]}>
+								<Input />
+							</Form.Item>
+						</Col>
+					</Row>
+					<Form.Item label="Icon" name="icon" rules={[{ required: false }]}>
+						<Input />
 					</Form.Item>
 
 					<Form.Item {...tailLayout}>

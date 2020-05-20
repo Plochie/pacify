@@ -19,13 +19,14 @@ interface CategoryDrawerProps {
 }
 
 function CategoryDrawer(props: CategoryDrawerProps) {
-	const [getCategories, { data }] = useLazyQuery<{ categories: Category[] }>(GET_CATEGORIES);
+	// start of component
+	const [getCategories, { data }] = useLazyQuery<{ categories: Category[] }>(GET_CATEGORIES, { fetchPolicy: 'network-only' });
 
 	useEffect(() => {
 		if (props.isVisible) {
 			getCategories();
 		}
-	}, [props.isVisible]);
+	}, [props.isVisible, getCategories]);
 
 	// set category tree after data received
 	if (data && data.categories) {

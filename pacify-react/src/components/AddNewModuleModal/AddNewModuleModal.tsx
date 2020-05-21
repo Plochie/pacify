@@ -1,8 +1,11 @@
 import { DownOutlined } from '@ant-design/icons';
 import { useLazyQuery } from '@apollo/react-hooks';
-import { Button, Col, Dropdown, Form, Input, Menu, Modal, Row } from 'antd';
+import { Dropdown, Menu, Modal } from 'antd';
 import React, { MouseEvent, useEffect, useState } from 'react';
+import { PacifyForm, PacifyFormCustomItem } from 'src/components/DynamicForm';
 import { Category, GET_CATEGORIES } from 'src/data/queries/GetCategories';
+import { NewModuleFormData } from 'src/forms';
+import {} from '../DynamicForm';
 
 // const ADD_MODULE = gql`
 // 	mutation addModule($sid: String!, $name: String!, $width: Float!, $height: Float!, $icon: String) {
@@ -70,10 +73,40 @@ function AddNewModuleModal(props: AddNewModuleModalProps) {
 		props.setIsVisible(false);
 	};
 
+	const onSubmit = (value: any) => {
+		console.log('onSubmit', value);
+	};
+
+	const _category_dropdown = (
+		<PacifyFormCustomItem key="_category_dropdown">
+			<Dropdown overlay={() => categoryDropdown(data)}>
+				<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+					Select Category For Module <DownOutlined />
+				</a>
+			</Dropdown>
+			<span>
+				<strong> {selectedCategory?.name}</strong>
+			</span>
+		</PacifyFormCustomItem>
+	);
+
+	const _category_dropdown2 = (
+		<PacifyFormCustomItem key="_category_dropdown2">
+			<Dropdown overlay={() => categoryDropdown(data)}>
+				<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+					Select Category For Module <DownOutlined />
+				</a>
+			</Dropdown>
+			<span>
+				<strong> {selectedCategory?.name}</strong>
+			</span>
+		</PacifyFormCustomItem>
+	);
+
 	return (
 		<div>
 			<Modal visible={props.isVisible} title="Add New Module" onOk={handleOk} onCancel={handleCancel}>
-				<Form {...layout} name="basic" size="small">
+				{/* <Form {...layout} name="basic" size="small">
 					<Dropdown overlay={() => categoryDropdown(data)}>
 						<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
 							Select Category For Module <DownOutlined />
@@ -90,18 +123,12 @@ function AddNewModuleModal(props: AddNewModuleModalProps) {
 					<Form.Item label="Name" name="name" rules={[{ required: true }]}>
 						<Input />
 					</Form.Item>
-					<Row>
-						<Col span={12}>
-							<Form.Item label="Width" name="width" rules={[{ required: true }]}>
-								<Input />
-							</Form.Item>
-						</Col>
-						<Col span={12}>
-							<Form.Item label="Height" name="height" rules={[{ required: true }]}>
-								<Input />
-							</Form.Item>
-						</Col>
-					</Row>
+					<Form.Item label="Width" name="width" rules={[{ required: true }]}>
+						<Input />
+					</Form.Item>
+					<Form.Item label="Height" name="height" rules={[{ required: true }]}>
+						<Input />
+					</Form.Item>
 					<Form.Item label="Icon" name="icon" rules={[{ required: false }]}>
 						<Input />
 					</Form.Item>
@@ -111,7 +138,11 @@ function AddNewModuleModal(props: AddNewModuleModalProps) {
 							Submit
 						</Button>
 					</Form.Item>
-				</Form>
+				</Form> */}
+				<PacifyForm onFinish={onSubmit} formData={NewModuleFormData}>
+					{_category_dropdown}
+					{/* {_category_dropdown2} */}
+				</PacifyForm>
 			</Modal>
 		</div>
 	);

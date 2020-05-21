@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { Form, Modal } from 'antd';
 import gql from 'graphql-tag';
 import React from 'react';
-import PacifyForm from 'src/components/DynamicForm/PacifyForm';
+import { PacifyForm } from 'src/components/DynamicForm';
 import { NewCategoryFormData } from 'src/forms';
 
 const ADD_CATEGORY = gql`

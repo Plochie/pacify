@@ -1,6 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import { Store } from 'antd/lib/form/interface';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { PacifyFormData } from './types';
 
 interface PacifyFormProps {
@@ -8,15 +8,27 @@ interface PacifyFormProps {
 	onFinish: (values: Store) => void;
 }
 
-const PacifyForm: FunctionComponent<PacifyFormProps> = props => {
+export const PacifyForm: FunctionComponent<PacifyFormProps> = props => {
+	useEffect(() => {
+		const children = props.children as any;
+		if (children) {
+			console.log(children.key);
+		}
+	});
+
 	return (
 		<Form name={props.formData.name} size={props.formData.size} onFinish={props.onFinish}>
 			{props.formData.formItems.map((formItem, index) => {
-				return (
-					<Form.Item key={index + formItem.label} label={formItem.label} name={formItem.name} rules={formItem.rules}>
-						<Input />
-					</Form.Item>
-				);
+				// check for custom elements
+				if (formItem.type === 'custom') {
+					return props.children;
+				} else {
+					return (
+						<Form.Item key={index + formItem.name} label={formItem.label} name={formItem.name} rules={formItem.rules}>
+							<Input />
+						</Form.Item>
+					);
+				}
 			})}
 
 			<Form.Item>
@@ -36,5 +48,3 @@ PacifyForm.defaultProps = {
 		size: 'small',
 	},
 };
-
-export default PacifyForm;

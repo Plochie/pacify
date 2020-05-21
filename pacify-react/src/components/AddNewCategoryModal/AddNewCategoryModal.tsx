@@ -1,7 +1,9 @@
 import { useMutation } from '@apollo/react-hooks';
-import { Button, Form, Input, message, Modal } from 'antd';
+import { Form, Modal } from 'antd';
 import gql from 'graphql-tag';
 import React from 'react';
+import PacifyForm from 'src/components/DynamicForm/PacifyForm';
+import { NewCategoryFormData } from 'src/forms';
 
 const ADD_CATEGORY = gql`
 	mutation addCategory($name: String!, $sid: String!, $desc: String) {
@@ -39,14 +41,14 @@ function AddNewCategoryModal(props: AddNewCategoryModalProps) {
 	};
 
 	const onSubmit = (values: any) => {
-		addCategory({ variables: values })
-			.then(res => {
-				message.success('Category added successfully');
-				form.resetFields();
-			})
-			.catch(err => {
-				console.error(err);
-			});
+		// addCategory({ variables: values })
+		// 	.then(res => {
+		// 		message.success('Category added successfully');
+		// 		form.resetFields();
+		// 	})
+		// 	.catch(err => {
+		// 		console.error(err);
+		// 	});
 
 		console.log('Success:', values);
 	};
@@ -58,32 +60,7 @@ function AddNewCategoryModal(props: AddNewCategoryModalProps) {
 	return (
 		<div>
 			<Modal visible={props.isVisible} title="Add New Category" onOk={handleOk} onCancel={handleCancel}>
-				<Form {...layout} name="catetgory" form={form} size="small">
-					<Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please enter name of category' }]}>
-						<Input />
-					</Form.Item>
-
-					<Form.Item
-						label="Short ID"
-						name="sid"
-						rules={[
-							{ required: true, message: 'Please enter Short ID for cateogry' },
-							{ len: 5, message: 'Length of Short ID should be exactly 5' },
-						]}
-					>
-						<Input />
-					</Form.Item>
-
-					<Form.Item label="Description" name="desc" rules={[{ required: false }]}>
-						<Input />
-					</Form.Item>
-
-					<Form.Item {...tailLayout}>
-						<Button type="primary" htmlType="submit">
-							Submit
-						</Button>
-					</Form.Item>
-				</Form>
+				<PacifyForm onFinish={onSubmit} formData={NewCategoryFormData} />
 			</Modal>
 		</div>
 	);

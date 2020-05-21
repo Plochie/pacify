@@ -906,3 +906,6 @@ Error: Unable to infer GraphQL type from TypeScript reflection system. You need 
 2020-05-20T13:44:48.066Z info: Database connection successful.
 2020-05-20T13:44:48.070Z info: Middleware initiated
 2020-05-20T13:44:48.076Z info: Server started successfully @ 3001
+2020-05-21T15:48:57.362Z info: Database connection successful.
+2020-05-21T15:48:57.367Z info: Middleware initiated
+2020-05-21T15:48:57.377Z info: Server started successfully @ 3001

@@ -1,5 +1,5 @@
 import { CLASS } from 'src/constants/CLASS';
-import { ModuleProperties } from 'src/entities';
+import { PacifyModule } from 'src/entities';
 import PathDragHandler from 'src/svg/PathDragHandler';
 import { SvgElement, SvgRectElement } from 'src/svg/types';
 
@@ -8,7 +8,7 @@ const OUTPUT = {
 	HEIGHT: 15,
 };
 
-const addOutput = function (parent: SvgElement, props: ModuleProperties): SvgRectElement {
+const addOutput = function (parent: SvgElement, props: PacifyModule): SvgRectElement {
 	const x = props.width - OUTPUT.WIDTH / 2;
 	const y = props.height / 2 - OUTPUT.HEIGHT / 2;
 

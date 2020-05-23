@@ -15,16 +15,16 @@ class PacifyCategory {
 
 	@Field()
 	@Column({ nullable: false })
-	name: string;
+	title: string;
 
 	@Field()
 	@Column({ nullable: true })
 	desc?: string;
 
-	// @Field(type => Module)
 	@OneToMany(type => Module, module => module.category, {
 		cascade: true,
 	})
+	@Field(type => [Module])
 	modules: Module[];
 
 	@Field()

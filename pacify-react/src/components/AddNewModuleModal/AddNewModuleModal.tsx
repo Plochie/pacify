@@ -1,28 +1,20 @@
 import { DownOutlined } from '@ant-design/icons';
-import { useLazyQuery } from '@apollo/react-hooks';
-import { Dropdown, Menu, Modal } from 'antd';
-import React, { MouseEvent, useEffect, useState } from 'react';
+import { useLazyQuery, useMutation } from '@apollo/react-hooks';
+import { Dropdown, Form, Menu, message, Modal } from 'antd';
+import gql from 'graphql-tag';
+import React, { useEffect, useState } from 'react';
 import { PacifyForm, PacifyFormCustomItem } from 'src/components/DynamicForm';
 import { Category, GET_CATEGORIES } from 'src/data/queries/GetCategories';
 import { NewModuleFormData } from 'src/forms';
-import {} from '../DynamicForm';
 
-// const ADD_MODULE = gql`
-// 	mutation addModule($sid: String!, $name: String!, $width: Float!, $height: Float!, $icon: String) {
-// 		addModule(sid: $sid, name: $name, width: $width, height: $height, icon: $icon) {
-// 			id
-// 			sid
-// 		}
-// 	}
-// `;
-
-const layout = {
-	labelCol: { span: 4 },
-	// wrapperCol: { span: 16 },
-};
-const tailLayout = {
-	// wrapperCol: { offset: 8, span: 16 },
-};
+const ADD_MODULE = gql`
+	mutation addModule($categorySID: String!, $sid: String!, $title: String!, $width: Float!, $height: Float!, $icon: String) {
+		addModule(categorySID: $categorySID, sid: $sid, title: $title, width: $width, height: $height, icon: $icon) {
+			id
+			sid
+		}
+	}
+`;
 
 interface AddNewModuleModalProps {
 	isVisible: boolean;
@@ -30,8 +22,10 @@ interface AddNewModuleModalProps {
 }
 
 function AddNewModuleModal(props: AddNewModuleModalProps) {
-	// const [addModule] = useMutation(ADD_MODULE);
+	// start of component
+	const [addModule] = useMutation(ADD_MODULE);
 	const [getCategories, { data }] = useLazyQuery<{ categories: Category[] }>(GET_CATEGORIES, { fetchPolicy: 'network-only' });
+	const [form] = Form.useForm();
 
 	const [selectedCategory, setSelectedCategory] = useState<Category>();
 
@@ -52,7 +46,7 @@ function AddNewModuleModal(props: AddNewModuleModalProps) {
 			return (
 				<Menu onClick={onCategoryDropdown}>
 					{data.categories.map(category => {
-						return <Menu.Item key={category.sid}>{category.name}</Menu.Item>;
+						return <Menu.Item key={category.sid}>{category.title}</Menu.Item>;
 					})}
 				</Menu>
 			);
@@ -65,86 +59,49 @@ function AddNewModuleModal(props: AddNewModuleModalProps) {
 		}
 	};
 
-	const handleOk = (e: MouseEvent<HTMLElement>) => {
-		props.setIsVisible(false);
+	const onSubmit = (values: any) => {
+		console.log('onSubmit', values);
+
+		if (selectedCategory) {
+			values.width = Number(values.width);
+			values.height = Number(values.height);
+			values.categorySID = selectedCategory.sid;
+
+			console.log('onSubmit', values);
+
+			addModule({ variables: values })
+				.then(res => {
+					message.success('Module added successfully');
+					form.resetFields();
+				})
+				.catch(err => {
+					console.error(err);
+				});
+		} else {
+			message.error('Category not selected.');
+		}
 	};
-
-	const handleCancel = (e: MouseEvent<HTMLElement>) => {
-		props.setIsVisible(false);
-	};
-
-	const onSubmit = (value: any) => {
-		console.log('onSubmit', value);
-	};
-
-	const _category_dropdown = (
-		<PacifyFormCustomItem key="_category_dropdown">
-			<Dropdown overlay={() => categoryDropdown(data)}>
-				<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-					Select Category For Module <DownOutlined />
-				</a>
-			</Dropdown>
-			<span>
-				<strong> {selectedCategory?.name}</strong>
-			</span>
-		</PacifyFormCustomItem>
-	);
-
-	const _category_dropdown2 = (
-		<PacifyFormCustomItem key="_category_dropdown2">
-			<Dropdown overlay={() => categoryDropdown(data)}>
-				<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-					Select Category For Module <DownOutlined />
-				</a>
-			</Dropdown>
-			<span>
-				<strong> {selectedCategory?.name}</strong>
-			</span>
-		</PacifyFormCustomItem>
-	);
 
 	return (
-		<div>
-			<Modal visible={props.isVisible} title="Add New Module" onOk={handleOk} onCancel={handleCancel}>
-				{/* <Form {...layout} name="basic" size="small">
+		<Modal
+			visible={props.isVisible}
+			title="Add New Module"
+			onOk={() => props.setIsVisible(false)}
+			onCancel={() => props.setIsVisible(false)}
+		>
+			<PacifyForm onFinish={onSubmit} formData={NewModuleFormData} form={form}>
+				<PacifyFormCustomItem key="_category_dropdown">
 					<Dropdown overlay={() => categoryDropdown(data)}>
 						<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
 							Select Category For Module <DownOutlined />
 						</a>
 					</Dropdown>
 					<span>
-						<strong> {selectedCategory?.name}</strong>
+						<strong> {selectedCategory?.title}</strong>
 					</span>
-
-					<Form.Item label="Short ID" name="sid" rules={[{ required: true }]}>
-						<Input />
-					</Form.Item>
-
-					<Form.Item label="Name" name="name" rules={[{ required: true }]}>
-						<Input />
-					</Form.Item>
-					<Form.Item label="Width" name="width" rules={[{ required: true }]}>
-						<Input />
-					</Form.Item>
-					<Form.Item label="Height" name="height" rules={[{ required: true }]}>
-						<Input />
-					</Form.Item>
-					<Form.Item label="Icon" name="icon" rules={[{ required: false }]}>
-						<Input />
-					</Form.Item>
-
-					<Form.Item {...tailLayout}>
-						<Button type="primary" htmlType="submit">
-							Submit
-						</Button>
-					</Form.Item>
-				</Form> */}
-				<PacifyForm onFinish={onSubmit} formData={NewModuleFormData}>
-					{_category_dropdown}
-					{/* {_category_dropdown2} */}
-				</PacifyForm>
-			</Modal>
-		</div>
+				</PacifyFormCustomItem>
+			</PacifyForm>
+		</Modal>
 	);
 }
 

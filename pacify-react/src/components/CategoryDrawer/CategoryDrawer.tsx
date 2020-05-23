@@ -4,14 +4,13 @@ import { Drawer, Tree } from 'antd';
 import React, { useEffect } from 'react';
 import { Category, GET_CATEGORIES } from 'src/data/queries/GetCategories';
 
-let treeData: {
+interface TreeNode {
 	title: string;
 	key: string;
-	children: {
-		title: string;
-		key: string;
-	}[];
-}[] = [];
+	children?: TreeNode[];
+}
+
+let treeData: TreeNode[];
 
 interface CategoryDrawerProps {
 	isVisible: boolean;
@@ -32,16 +31,27 @@ function CategoryDrawer(props: CategoryDrawerProps) {
 	if (data && data.categories) {
 		treeData = [];
 
-		console.log('here', data);
-
 		data.categories.forEach(category => {
+			let children: TreeNode[] = [];
+
+			if (category.modules) {
+				category.modules.forEach(module => {
+					children.push({
+						title: module.title,
+						key: module.sid,
+					});
+				});
+			}
+
 			// add category first
 			treeData.push({
-				title: category.name,
+				title: category.title,
 				key: category.sid,
-				children: [],
+				children,
 			});
 		});
+
+		console.log(treeData);
 	}
 
 	const onClose = () => {

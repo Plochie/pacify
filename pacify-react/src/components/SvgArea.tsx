@@ -12,15 +12,16 @@ import { SvgSvgElement } from 'src/svg/types';
 const generateTestingUI = (d3Svg: any) => {
 	const test1 = addPalette(d3Svg, {
 		title: 'Module 1',
+		sid: 'mod1',
 		x: 400,
 		y: 50,
 		width: 140,
 		height: 50,
 		icon: `${process.env.PUBLIC_URL}/logo192.png`,
 	});
-	const test2 = addPalette(d3Svg, { title: 'Module 2', x: 100, y: 200, width: 140, height: 50 });
-	const test3 = addPalette(d3Svg, { title: 'Module 3', x: 700, y: 350, width: 140, height: 50 });
-	addPalette(d3Svg, { title: 'Module 3', x: 400, y: 500, width: 140, height: 50 });
+	const test2 = addPalette(d3Svg, { title: 'Module 2', sid: 'mod2', x: 100, y: 200, width: 140, height: 50 });
+	const test3 = addPalette(d3Svg, { title: 'Module 3', sid: 'mod3', x: 700, y: 350, width: 140, height: 50 });
+	addPalette(d3Svg, { title: 'Module 4', sid: 'mod4', x: 400, y: 500, width: 140, height: 50 });
 
 	connectPalettes(test2.output.node() as any, test1.input.node() as any);
 	connectPalettes(test1.output.node() as any, test3.input.node() as any);

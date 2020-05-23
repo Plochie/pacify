@@ -12,7 +12,7 @@ class CategoryQueryArgs {
 @ArgsType()
 class CategoryMutationArgs {
 	@Field(type => String)
-	name: string;
+	title: string;
 
 	@Field(type => String)
 	sid: string;
@@ -24,9 +24,14 @@ class CategoryMutationArgs {
 @Resolver(of => PacifyCategory)
 class PacifyCategoryResolver {
 	@Query(() => [PacifyCategory])
-	async categories(@Args() args: CategoryQueryArgs) {
+	async categories(@Args() args: CategoryQueryArgs): Promise<PacifyCategory[]> {
 		const repo = getRepository(PacifyCategory, environment.db.name);
-		return repo.find(args);
+		const categs = await repo.find({
+			relations: ['modules'],
+		});
+
+		console.log(categs[0]);
+		return categs;
 	}
 
 	@Mutation(() => PacifyCategory)

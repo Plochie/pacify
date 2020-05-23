@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { Subject } from 'rxjs';
 import { CLASS } from 'src/constants/CLASS';
-import { ModuleProperties } from 'src/entities';
+import { PacifyModule } from 'src/entities';
 import DragHandler from 'src/svg/GroupDragHandler';
 import addInput from 'src/svg/module/addInput';
 import addOutput from 'src/svg/module/addOutput';
@@ -28,7 +28,7 @@ const moduleContextMenuHandler = function (this: SVGGElement, datum: SvgGElement
 
 const addPalette = function (
 	parent: SvgElement,
-	props: ModuleProperties,
+	props: PacifyModule,
 ): {
 	g: SvgGElement;
 	input: SvgRectElement;
@@ -61,7 +61,7 @@ const addPalette = function (
 	return { g, input, output };
 };
 
-const addTitle = function (parent: SvgElement, props: ModuleProperties): SvgTextElement | undefined {
+const addTitle = function (parent: SvgElement, props: PacifyModule): SvgTextElement | undefined {
 	let x, y;
 	let textAnchor = 'middle';
 
@@ -86,7 +86,7 @@ const addTitle = function (parent: SvgElement, props: ModuleProperties): SvgText
 	return svg;
 };
 
-const addLogo = function (parent: SvgElement, props: ModuleProperties): SvgImageElement | undefined {
+const addLogo = function (parent: SvgElement, props: PacifyModule): SvgImageElement | undefined {
 	if (props.icon) {
 		const width = LOGO.WIDTH;
 		const height = LOGO.HEIGHT;

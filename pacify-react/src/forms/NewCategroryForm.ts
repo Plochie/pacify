@@ -4,10 +4,11 @@ export const NewCategoryFormData: PacifyFormData = {
 	name: 'category',
 	size: 'small',
 	submitName: 'Submit',
+	resetName: 'Reset',
 	formItems: [
 		{
-			label: 'Name',
-			name: 'name',
+			label: 'Title',
+			name: 'title',
 			rules: [{ required: true, message: 'Please enter name of category' }],
 		},
 		{

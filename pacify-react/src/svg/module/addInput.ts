@@ -1,5 +1,5 @@
 import * as d3Selection from 'd3-selection';
-import { ModuleProperties } from 'src/entities';
+import { PacifyModule } from 'src/entities';
 import { SvgElement, SvgRectElement } from 'src/svg/types';
 import { CLASS } from '../../constants/CLASS';
 import GroupDragHandler from '../GroupDragHandler';
@@ -27,7 +27,7 @@ const mouseleave = function (parent: SvgElement) {
 	}
 };
 
-const addInput = function (parent: SvgElement, props: ModuleProperties): SvgRectElement {
+const addInput = function (parent: SvgElement, props: PacifyModule): SvgRectElement {
 	const x = INPUT.WIDTH / 2 - INPUT.HEIGHT;
 	const y = props.height / 2 - INPUT.HEIGHT / 2;
 

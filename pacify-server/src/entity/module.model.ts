@@ -15,7 +15,7 @@ class Module {
 
 	@Field()
 	@Column({ nullable: false })
-	name: string;
+	title: string;
 
 	@Field()
 	@Column({ nullable: false })

@@ -1,4 +1,5 @@
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import { Rule } from 'antd/lib/form';
 
 export type PacifyFormData = {
 	size: SizeType;
@@ -11,6 +12,6 @@ export type PacifyFormData = {
 export type PacifyFormItem = {
 	label?: string;
 	name: string;
-	rules?: any[];
+	rules?: Rule[];
 	type?: 'string' | 'numeric' | 'custom';
 };

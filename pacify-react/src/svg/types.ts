@@ -1,18 +1,20 @@
 import * as d3Selection from 'd3-selection';
+import { PacifyModule } from 'src/entities';
 
 // shorten d3 selection interface for svg container
 export interface SvgElement
 	extends d3Selection.Selection<SVGGElement | SVGSVGElement | SVGRectElement | SVGPathElement, any, null, undefined> {}
 
 // group
-export interface SvgGElementDatum {
+export interface SvgModuleElementDatum {
 	x: number;
 	y: number;
+	data: PacifyModule;
 	drag: boolean;
 	from?: SVGElement[];
 	to?: SVGElement[];
 }
-export interface SvgGElement extends d3Selection.Selection<SVGGElement, SvgGElementDatum, null, undefined> {}
+export interface SvgModuleElement extends d3Selection.Selection<SVGGElement, SvgModuleElementDatum, null, undefined> {}
 
 // svg
 export interface SvgSvgElement extends d3Selection.Selection<SVGSVGElement, unknown, null, undefined> {}

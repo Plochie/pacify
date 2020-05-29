@@ -47,7 +47,6 @@ class ModuleResolver {
 		const moduleRepo = getRepository(Module, environment.db.name);
 
 		const category = await categoryRepo.findOne({ sid: args.categorySID });
-		console.log(category);
 
 		const module = moduleRepo.create(args);
 		if (!category.modules) {

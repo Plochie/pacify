@@ -5,9 +5,9 @@ import { PacifyModule } from 'src/entities';
 import DragHandler from 'src/svg/GroupDragHandler';
 import addInput from 'src/svg/module/addInput';
 import addOutput from 'src/svg/module/addOutput';
-import { SvgElement, SvgGElement, SvgGElementDatum, SvgImageElement, SvgRectElement, SvgTextElement } from 'src/svg/types';
+import { SvgElement, SvgImageElement, SvgModuleElement, SvgModuleElementDatum, SvgRectElement, SvgTextElement } from 'src/svg/types';
 
-export const moduleContextMenuSubject = new Subject();
+export const moduleContextMenuSubject = new Subject<SVGGElement>();
 
 const LOGO = {
 	WIDTH: 35,
@@ -21,22 +21,26 @@ const LOGO = {
  * @param datum Path datum
  * @param i
  */
-const moduleContextMenuHandler = function (this: SVGGElement, datum: SvgGElementDatum, i: any) {
+const moduleContextMenuHandler = function (this: SVGGElement, datum: SvgModuleElementDatum, i: any) {
 	d3.event.preventDefault();
-	moduleContextMenuSubject.next();
+	moduleContextMenuSubject.next(this);
 };
 
 const addPalette = function (
 	parent: SvgElement,
 	props: PacifyModule,
 ): {
-	g: SvgGElement;
+	g: SvgModuleElement;
 	input: SvgRectElement;
 	output: SvgRectElement;
 } {
-	const datumG: SvgGElementDatum = { x: props.x, y: props.y, drag: false, from: [], to: [] };
+	// check x and y coordinates are provided for group
+	if (!props.x) props.x = 20;
+	if (!props.y) props.y = 20;
 
-	const g: SvgGElement = parent
+	const datumG: SvgModuleElementDatum = { x: props.x, y: props.y, drag: false, from: [], to: [], data: props };
+
+	const g: SvgModuleElement = parent
 		.append('g')
 		.datum(datumG)
 		.attr('class', CLASS.ACTION.WRAPPER)
@@ -45,7 +49,7 @@ const addPalette = function (
 		})
 		.call(DragHandler as any);
 	// add wrapper
-	g.append('rect').attr('class', CLASS.ACTION.MAIN).attr('fill', 'orange').attr('width', 140).attr('height', 50);
+	g.append('rect').attr('class', CLASS.ACTION.MAIN).attr('fill', 'orange').attr('width', props.width).attr('height', props.height);
 
 	// add input
 	const input = addInput(g, props);

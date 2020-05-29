@@ -30,7 +30,6 @@ class PacifyCategoryResolver {
 			relations: ['modules'],
 		});
 
-		console.log(categs[0]);
 		return categs;
 	}
 

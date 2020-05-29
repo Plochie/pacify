@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import * as d3Select from 'd3-selection';
 import React, { useEffect, useRef, useState } from 'react';
 import 'src/App.scss';
@@ -6,7 +7,7 @@ import SvgPathModal from 'src/components/SvgPathModal/SvgPathModal';
 import { CLASS } from 'src/constants/CLASS';
 import addPalette, { moduleContextMenuSubject } from 'src/svg/module/addPalette';
 import { connectPalettes, pathContextMenuSubject } from 'src/svg/PathDragHandler';
-import { SvgSvgElement } from 'src/svg/types';
+import { moduleClickedSubject } from './CategoryDrawer/CategoryDrawer';
 
 // TODO: remove this
 const generateTestingUI = (d3Svg: any) => {
@@ -31,14 +32,12 @@ const generateTestingUI = (d3Svg: any) => {
 function SvgArea() {
 	const svgRef = useRef<SVGSVGElement>(null);
 	// eslint-disable-next-line
-	const [svgState, setSvgState] = useState<SvgSvgElement>();
 	const [pathModelVisible, setPathModelVisible] = useState<boolean>(false);
-	const [moduleVisible, setModuleVisibleVisible] = useState<boolean>(false);
+	const [moduleContext, setModuleContext] = useState<SVGGElement>();
 
 	useEffect(() => {
 		// get svg area and set it in state
 		const d3Svg = d3Select.select(svgRef.current);
-		setSvgState(d3Svg as any);
 		// TODO: remove this
 		generateTestingUI(d3Svg);
 	}, [svgRef]);
@@ -46,7 +45,13 @@ function SvgArea() {
 	// useeffect for managing subjects
 	useEffect(() => {
 		pathContextMenuSubject.subscribe(() => setPathModelVisible(true));
-		moduleContextMenuSubject.subscribe(() => setModuleVisibleVisible(true));
+		moduleContextMenuSubject.subscribe(moduleSvgElement => setModuleContext(moduleSvgElement));
+
+		moduleClickedSubject.subscribe(module => {
+			addPalette(d3Select.select(svgRef.current) as any, module);
+			message.success(`Module added in project: ${module.title}`);
+		});
+
 		return () => pathContextMenuSubject.unsubscribe();
 	}, []);
 
@@ -59,7 +64,7 @@ function SvgArea() {
 				<br />
 			</div>
 			<SvgPathModal isVisible={pathModelVisible} setIsVisible={setPathModelVisible} />
-			<ModuleModal isVisible={moduleVisible} setIsVisible={setModuleVisibleVisible} />
+			<ModuleModal moduleContext={moduleContext} setModuleContext={setModuleContext} />
 		</>
 	);
 }

@@ -3,7 +3,7 @@ import * as d3Drag from 'd3-drag';
 import * as d3Select from 'd3-selection';
 import { Subject } from 'rxjs';
 import { CLASS } from 'src/constants/CLASS';
-import { SvgGElement, SvgPathElement, SvgPathElementDatum } from 'src/svg/types';
+import { SvgModuleElement, SvgPathElement, SvgPathElementDatum } from 'src/svg/types';
 
 export const pathContextMenuSubject = new Subject();
 
@@ -182,12 +182,12 @@ export const connectPalettes = (fromIO: SVGElement, toIO: SVGElement) => {
 	const toG = toIO.parentNode as SVGGElement;
 
 	// add to informatin in fromG
-	(d3Select.select(fromG) as SvgGElement).datum().to?.push(toG);
+	(d3Select.select(fromG) as SvgModuleElement).datum().to?.push(toG);
 	// add to informatin in toG
-	(d3Select.select(toG) as SvgGElement).datum().from?.push(fromG);
+	(d3Select.select(toG) as SvgModuleElement).datum().from?.push(fromG);
 
-	const toOffset = (d3Select.select(toG) as SvgGElement).datum();
-	const fromOffset = (d3Select.select(fromG) as SvgGElement).datum();
+	const toOffset = (d3Select.select(toG) as SvgModuleElement).datum();
+	const fromOffset = (d3Select.select(fromG) as SvgModuleElement).datum();
 
 	const toX = Number(toIO.getAttribute('x')) + toOffset.x + 7.5;
 	const toY = Number(toIO.getAttribute('y')) + toOffset.y + 7.5;

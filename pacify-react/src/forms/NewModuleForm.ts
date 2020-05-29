@@ -18,7 +18,7 @@ export const NewModuleFormData: PacifyFormData = {
 		{
 			label: 'Short ID',
 			name: 'sid',
-			rules: [{ required: true }],
+			rules: [{ required: true }, { len: 5 }],
 		},
 		{
 			label: 'Width',

@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
 import * as d3Drag from 'd3-drag';
 import * as d3Select from 'd3-selection';
-import { CLASS } from './../constants/CLASS';
+import { CLASS } from 'src/constants/CLASS';
+import { SvgModuleElement, SvgPathElement } from 'src/svg/types';
 import { pathDFunction } from './PathDragHandler';
-import { SvgGElement, SvgPathElement } from './types';
 
 // Start of the drag
 const dragStart = function (this: SVGGElement, d: any) {
@@ -16,7 +16,7 @@ const dragEnd = function (this: SVGGElement, d: any) {};
 
 const dragging = function (this: SVGGElement, d: any) {
 	const svgG = this;
-	const d3SvgG = d3Select.select(svgG) as SvgGElement;
+	const d3SvgG = d3Select.select(svgG) as SvgModuleElement;
 
 	const x = d.x + d3.event.dx;
 	const y = d.y + d3.event.dy;
@@ -34,7 +34,7 @@ const dragging = function (this: SVGGElement, d: any) {
 	d3SvgG.attr('transform', 'translate(' + [d.x, d.y] + ')');
 };
 
-const pathAdjustmentDueToGroupDrag = function (svgG: SVGGElement, d3SvgG: SvgGElement): void {
+const pathAdjustmentDueToGroupDrag = function (svgG: SVGGElement, d3SvgG: SvgModuleElement): void {
 	const modifyCoordinates = (fromG: SVGGElement, toG: SVGGElement, pos: 'start' | 'end') => {
 		const connections = d3Select.select(`#${CLASS.CONNECTION.ID}`).selectAll(`.${CLASS.CONNECTION.CLASS}`);
 		for (const conn of connections.nodes()) {

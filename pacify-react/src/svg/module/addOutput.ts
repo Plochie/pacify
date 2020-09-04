@@ -8,23 +8,26 @@ const OUTPUT = {
 	HEIGHT: 15,
 };
 
-const addOutput = function (parent: SvgElement, props: PacifyModule): SvgRectElement {
-	const x = props.width - OUTPUT.WIDTH / 2;
-	const y = props.height / 2 - OUTPUT.HEIGHT / 2;
-
+const addOutput = function (parent: SvgElement, props: PacifyModule): SvgRectElement | undefined {
 	// add output
-	const output = parent
-		.append('rect')
-		.attr('class', CLASS.ACTION.OUTPUT)
-		.attr('fill', 'green')
-		.attr('width', OUTPUT.WIDTH)
-		.attr('height', OUTPUT.HEIGHT)
-		.attr('x', x)
-		.attr('y', y);
+	if (props.outputs && props.outputs.length > 0) {
+		const x = props.width - OUTPUT.WIDTH / 2;
+		const y = props.height / 2 - OUTPUT.HEIGHT / 2;
 
-	output.call(PathDragHandler as any);
+		// add output
+		const output = parent
+			.append('rect')
+			.attr('class', CLASS.ACTION.OUTPUT)
+			.attr('fill', 'green')
+			.attr('width', OUTPUT.WIDTH)
+			.attr('height', OUTPUT.HEIGHT)
+			.attr('x', x)
+			.attr('y', y);
 
-	return output;
+		output.call(PathDragHandler as any);
+
+		return output;
+	}
 };
 
 export default addOutput;

@@ -7,7 +7,7 @@ import { NewCategoryFormData } from 'src/forms';
 
 const ADD_CATEGORY = gql`
 	mutation addCategory($title: String!, $sid: String!, $desc: String) {
-		addCategory(title: $title, sid: $sid, desc: $desc) {
+		addCategory(category: { title: $title, sid: $sid, desc: $desc }) {
 			sid
 		}
 	}
@@ -18,7 +18,7 @@ interface AddNewCategoryModalProps {
 	setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function AddNewCategoryModal(props: AddNewCategoryModalProps) {
+export function AddNewCategoryModal(props: AddNewCategoryModalProps) {
 	const [addCategory] = useMutation(ADD_CATEGORY);
 	const [form] = Form.useForm();
 
@@ -46,5 +46,3 @@ function AddNewCategoryModal(props: AddNewCategoryModalProps) {
 		</div>
 	);
 }
-
-export default AddNewCategoryModal;

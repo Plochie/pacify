@@ -6,13 +6,15 @@ export interface ConfigInterface {
 		port: number;
 	};
 	db: {
-		type: 'mysql';
-		name: string;
-		host: string;
-		port: number;
-		user: string;
-		pass: string;
-		schema: string;
+		static: {
+			type: 'mysql';
+			name: string;
+			host: string;
+			port: number;
+			user: string;
+			pass: string;
+			schema: string;
+		};
 	};
 }
 

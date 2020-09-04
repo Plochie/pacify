@@ -26,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-index": "find -type f -name \"*.tsx\" | xargs -i grep -EoH \"export [A-Za-z]+ [A-Za-z]+\" {} | awk '{gsub(/:/, \" \")} $1' | awk -F\" \" '{print $1}' | sed s/.tsx//g | sed s/ts//g | xargs -i echo \"export * from '{}';\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,8 +46,12 @@
   },
   "devDependencies": {
     "@types/d3": "^5.7.2",
+    "@types/react-router-dom": "^5.1.5",
+    "antd-scss-theme-plugin": "^1.0.8",
     "babel-plugin-module-resolver": "^4.0.0",
     "node-sass": "^4.14.1",
+    "react-app-rewired": "^2.1.6",
+    "react-router-dom": "^5.2.0",
     "reflect-metadata": "^0.1.13"
   }
 }

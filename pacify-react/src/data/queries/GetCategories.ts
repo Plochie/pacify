@@ -100,6 +100,16 @@ export const GET_CATEGORIES = gql`
 				width
 				height
 				icon
+				isStarter
+				isShared
+				inputs {
+					sid
+					title
+				}
+				outputs {
+					sid
+					title
+				}
 			}
 		}
 	}

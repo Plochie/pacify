@@ -4,14 +4,18 @@ import { Rule } from 'antd/lib/form';
 export type PacifyFormData = {
 	size: SizeType;
 	name: string;
-	formItems: PacifyFormItem[];
+	rows: PacifyFormItemRow[];
 	submitName?: string;
 	resetName: string;
+};
+
+export type PacifyFormItemRow = {
+	items: PacifyFormItem[];
 };
 
 export type PacifyFormItem = {
 	label?: string;
 	name: string;
 	rules?: Rule[];
-	type?: 'string' | 'numeric' | 'custom';
+	type: 'string' | 'numeric' | 'checkbox' | 'directory' | 'custom' | 'inside_form';
 };

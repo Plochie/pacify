@@ -2,7 +2,8 @@ import * as d3 from 'd3';
 import { Subject } from 'rxjs';
 import { CLASS } from 'src/constants/CLASS';
 import { PacifyModule } from 'src/entities';
-import DragHandler from 'src/svg/GroupDragHandler';
+import { PacifyUserDataModule } from 'src/entities/PacifyUserDataModule';
+import GroupDragHandler from 'src/svg/GroupDragHandler';
 import addInput from 'src/svg/module/addInput';
 import addOutput from 'src/svg/module/addOutput';
 import { SvgElement, SvgImageElement, SvgModuleElement, SvgModuleElementDatum, SvgRectElement, SvgTextElement } from 'src/svg/types';
@@ -28,17 +29,18 @@ const moduleContextMenuHandler = function (this: SVGGElement, datum: SvgModuleEl
 
 const addPalette = function (
 	parent: SvgElement,
-	props: PacifyModule,
+	staticProps: PacifyModule,
+	userDataProps: PacifyUserDataModule,
 ): {
 	g: SvgModuleElement;
-	input: SvgRectElement;
-	output: SvgRectElement;
+	input: SvgRectElement | undefined;
+	output: SvgRectElement | undefined;
 } {
 	// check x and y coordinates are provided for group
-	if (!props.x) props.x = 20;
-	if (!props.y) props.y = 20;
+	if (!userDataProps.x) userDataProps.x = 20;
+	if (!userDataProps.y) userDataProps.y = 20;
 
-	const datumG: SvgModuleElementDatum = { x: props.x, y: props.y, drag: false, from: [], to: [], data: props };
+	const datumG: SvgModuleElementDatum = { x: userDataProps.x, y: userDataProps.y, drag: false, from: [], to: [], data: staticProps };
 
 	const g: SvgModuleElement = parent
 		.append('g')
@@ -47,25 +49,29 @@ const addPalette = function (
 		.attr('transform', function (d) {
 			return 'translate(' + d.x + ' ' + d.y + ')';
 		})
-		.call(DragHandler as any);
+		.call(GroupDragHandler as any);
 	// add wrapper
-	g.append('rect').attr('class', CLASS.ACTION.MAIN).attr('fill', 'orange').attr('width', props.width).attr('height', props.height);
+	g.append('rect')
+		.attr('class', CLASS.ACTION.MAIN)
+		.attr('fill', 'orange')
+		.attr('width', staticProps.width)
+		.attr('height', staticProps.height);
 
 	// add input
-	const input = addInput(g, props);
+	const input = addInput(g, staticProps);
 	// add output
-	const output = addOutput(g, props);
+	const output = addOutput(g, staticProps);
 	// add logo
-	addLogo(g, props);
+	addLogo(g, staticProps);
 	// add title
-	addTitle(g, props);
+	addTitle(g, staticProps);
 
 	g.on('contextmenu', moduleContextMenuHandler);
 
 	return { g, input, output };
 };
 
-const addTitle = function (parent: SvgElement, props: PacifyModule): SvgTextElement | undefined {
+const addTitle = function (parent: SvgElement, props: PacifyModule): SvgTextElement {
 	let x, y;
 	let textAnchor = 'middle';
 

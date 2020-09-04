@@ -5,37 +5,149 @@ export const NewModuleFormData: PacifyFormData = {
 	size: 'small',
 	submitName: 'Submit',
 	resetName: 'Reset',
-	formItems: [
+	rows: [
 		{
-			name: '_category_dropdown',
-			type: 'custom',
+			items: [
+				{
+					name: '_category_dropdown',
+					type: 'custom',
+				},
+			],
+		},
+
+		{
+			items: [
+				{
+					label: 'Title',
+					name: 'title',
+					rules: [{ required: true }],
+					type: 'string',
+				},
+			],
 		},
 		{
-			label: 'Title',
-			name: 'title',
-			rules: [{ required: true }],
+			items: [
+				{
+					label: 'Short ID',
+					name: 'sid',
+					rules: [{ required: true }, { len: 5 }],
+					type: 'string',
+				},
+			],
 		},
 		{
-			label: 'Short ID',
-			name: 'sid',
-			rules: [{ required: true }, { len: 5 }],
+			items: [
+				{
+					label: 'Width',
+					name: 'width',
+					rules: [{ required: true }],
+					type: 'numeric',
+				},
+			],
 		},
 		{
-			label: 'Width',
-			name: 'width',
-			rules: [{ required: true }],
-			type: 'numeric',
+			items: [
+				{
+					label: 'Height',
+					name: 'height',
+					rules: [{ required: true }],
+					type: 'numeric',
+				},
+			],
 		},
 		{
-			label: 'Height',
-			name: 'height',
-			rules: [{ required: true }],
-			type: 'numeric',
+			items: [
+				{
+					label: 'Icon',
+					name: 'icon',
+					rules: [{ required: false }],
+					type: 'string',
+				},
+			],
 		},
 		{
-			label: 'Icon',
-			name: 'icon',
-			rules: [{ required: false }],
+			items: [
+				{
+					label: 'Starter ?',
+					name: 'isStarter',
+					type: 'checkbox',
+				},
+			],
+		},
+		{
+			items: [
+				{
+					label: 'Shared ?',
+					name: 'isShared',
+					type: 'checkbox',
+				},
+			],
+		},
+		{
+			items: [
+				{
+					name: '_custom_input_form',
+					type: 'inside_form',
+				},
+			],
+		},
+		{
+			items: [
+				{
+					name: '_custom_output_form',
+					type: 'inside_form',
+				},
+			],
+		},
+	],
+};
+
+export const NewModuleInputFormData: PacifyFormData = {
+	name: 'inputs',
+	size: 'small',
+	submitName: 'Add Input',
+	resetName: 'Reset',
+	rows: [
+		{
+			items: [
+				{
+					label: 'Title',
+					name: 'title',
+					rules: [{ required: true }],
+					type: 'string',
+				},
+				{
+					label: 'Short ID',
+					name: 'sid',
+					rules: [{ required: true }, { len: 5 }],
+					type: 'string',
+				},
+			],
+		},
+	],
+};
+
+export const NewModuleOutputFormData: PacifyFormData = {
+	name: 'outputs',
+	size: 'small',
+	submitName: 'Add Output',
+	resetName: 'Reset',
+	rows: [
+		{
+			items: [
+				{
+					label: 'Title',
+					name: 'title',
+					rules: [{ required: true }],
+					type: 'string',
+				},
+				{
+					label: 'Short ID',
+					name: 'sid',
+					rules: [{ required: true }, { len: 5 }],
+					type: 'string',
+				},
+			],
 		},
 	],
 };

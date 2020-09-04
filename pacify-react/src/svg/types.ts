@@ -30,8 +30,8 @@ export interface SvgImageElement extends d3Selection.Selection<SVGImageElement, 
 
 // path
 export interface SvgPathElementDatum {
-	from?: SVGElement;
-	to?: SVGElement;
+	from: SVGElement;
+	to: SVGElement;
 	points: { x: number; y: number }[];
 }
 export interface SvgPathElement extends d3Selection.Selection<SVGPathElement, SvgPathElementDatum, null, undefined> {}

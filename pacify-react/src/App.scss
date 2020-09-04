@@ -1,4 +1,5 @@
-$BACKGROUND_COLOR: #111;
+// $BACKGROUND_COLOR: #111;
+$BACKGROUND_COLOR: whitesmoke;
 
 .App {
 	width: 100%;
@@ -17,6 +18,8 @@ $BACKGROUND_COLOR: #111;
 		height: 600px;
 		// background-color: whitesmoke;
 		background-color: $BACKGROUND_COLOR;
+		border: 2px dashed lightgrey;
+		border-radius: 10px;
 	}
 }
 

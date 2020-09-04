@@ -1,10 +1,10 @@
 import { Field, ObjectType } from 'type-graphql';
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import PacifyCategory from './category.model';
+import PacifyModule from './module.model';
 
 @ObjectType()
-@Entity({ name: 'module' })
-class Module {
+@Entity({ name: 'module_input' })
+class ModuleInput {
 	@Field()
 	@PrimaryGeneratedColumn()
 	id: number;
@@ -17,20 +17,8 @@ class Module {
 	@Column({ nullable: false })
 	title: string;
 
-	@Field()
-	@Column({ nullable: false })
-	width: number;
-
-	@Field()
-	@Column({ nullable: false })
-	height: number;
-
-	@Field({ nullable: true })
-	@Column({ nullable: true })
-	icon?: string;
-
-	@ManyToOne(() => PacifyCategory)
-	category: PacifyCategory;
+	@ManyToOne(() => PacifyModule)
+	module: PacifyModule;
 
 	@CreateDateColumn()
 	createdAt: Date;
@@ -39,4 +27,4 @@ class Module {
 	updatedAt: Date;
 }
 
-export default Module;
+export default ModuleInput;

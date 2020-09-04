@@ -1,0 +1,27 @@
+.module-container {
+	padding: 0px 2px 2px 2px;
+	margin-left: 30px;
+	transition: ease-in-out 200ms;
+	border-radius: 10px;
+
+	&:hover {
+		background-color: lightcoral;
+		color: white;
+	}
+}
+
+.category-container {
+	padding: 5px 10px;
+	display: flex;
+	align-items: center;
+}
+
+.category-label {
+	padding: 0px 8px;
+	font-size: 10px;
+	border-radius: 10px;
+	background-color: orange;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}

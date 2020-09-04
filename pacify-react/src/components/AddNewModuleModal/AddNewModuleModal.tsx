@@ -3,13 +3,31 @@ import { useLazyQuery, useMutation } from '@apollo/react-hooks';
 import { Dropdown, Form, Menu, message, Modal } from 'antd';
 import gql from 'graphql-tag';
 import React, { useEffect, useState } from 'react';
-import { PacifyForm, PacifyFormCustomItem } from 'src/components/DynamicForm';
+import { PacifyForm, PacifyFormCustomItem, PacifyInnerForm } from 'src/components/DynamicForm';
 import { Category, GET_CATEGORIES } from 'src/data/queries/GetCategories';
-import { NewModuleFormData } from 'src/forms';
+import { NewModuleFormData, NewModuleInputFormData, NewModuleOutputFormData } from 'src/forms';
 
 const ADD_MODULE = gql`
-	mutation addModule($categorySID: String!, $sid: String!, $title: String!, $width: Float!, $height: Float!, $icon: String) {
-		addModule(categorySID: $categorySID, sid: $sid, title: $title, width: $width, height: $height, icon: $icon) {
+	mutation addModule(
+		$categorySID: String!
+		$sid: String!
+		$title: String!
+		$width: Float!
+		$height: Float!
+		$icon: String
+		$isStarter: Boolean!
+		$isShared: Boolean!
+	) {
+		addModule(
+			categorySID: $categorySID
+			sid: $sid
+			title: $title
+			width: $width
+			height: $height
+			icon: $icon
+			isStarter: $isStarter
+			isShared: $isShared
+		) {
 			id
 			sid
 		}
@@ -21,7 +39,7 @@ interface AddNewModuleModalProps {
 	setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function AddNewModuleModal(props: AddNewModuleModalProps) {
+export function AddNewModuleModal(props: AddNewModuleModalProps) {
 	// start of component
 	const [addModule] = useMutation(ADD_MODULE);
 	const [getCategories, { data }] = useLazyQuery<{ categories: Category[] }>(GET_CATEGORIES, { fetchPolicy: 'network-only' });
@@ -67,8 +85,6 @@ function AddNewModuleModal(props: AddNewModuleModalProps) {
 			values.height = Number(values.height);
 			values.categorySID = selectedCategory.sid;
 
-			console.log('onSubmit', values);
-
 			addModule({ variables: values })
 				.then(res => {
 					message.success('Module added successfully');
@@ -89,20 +105,42 @@ function AddNewModuleModal(props: AddNewModuleModalProps) {
 			onOk={() => props.setIsVisible(false)}
 			onCancel={() => props.setIsVisible(false)}
 		>
-			<PacifyForm onFinish={onSubmit} formData={NewModuleFormData} form={form}>
+			<PacifyForm
+				onFinish={onSubmit}
+				formData={NewModuleFormData}
+				form={form}
+				initialValues={{
+					isStarter: false,
+					isShared: false,
+				}}
+			>
 				<PacifyFormCustomItem key="_category_dropdown">
-					<Dropdown overlay={() => categoryDropdown(data)}>
-						<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-							Select Category For Module <DownOutlined />
-						</a>
-					</Dropdown>
-					<span>
-						<strong> {selectedCategory?.title}</strong>
-					</span>
+					<div style={{ paddingBottom: '15px' }}>
+						<Dropdown overlay={() => categoryDropdown(data)}>
+							<a href="/#" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+								Select Category For Module <DownOutlined />
+							</a>
+						</Dropdown>
+						<span>
+							<strong> {selectedCategory?.title}</strong>
+						</span>
+					</div>
+				</PacifyFormCustomItem>
+
+				<PacifyFormCustomItem key="_custom_input_form">
+					<PacifyInnerForm formData={NewModuleInputFormData} styles={innerFormStyles} />
+				</PacifyFormCustomItem>
+				<PacifyFormCustomItem key="_custom_output_form">
+					<PacifyInnerForm formData={NewModuleOutputFormData} styles={innerFormStyles} />
 				</PacifyFormCustomItem>
 			</PacifyForm>
 		</Modal>
 	);
 }
 
-export default AddNewModuleModal;
+const innerFormStyles: React.CSSProperties = {
+	border: '1px dashed lightgray',
+	borderRadius: '5px',
+	padding: '10px',
+	marginBottom: '10px',
+};

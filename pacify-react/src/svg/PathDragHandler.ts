@@ -133,10 +133,8 @@ const dragStart = function (this: Element, d: any) {
  */
 const dragging = function (this: Element, d: any) {
 	const svgNode = this as SVGElement;
-
 	const x = d3Select.event.x + Number(svgNode.getAttribute('x'));
 	const y = d3Select.event.y + Number(svgNode.getAttribute('y'));
-
 	pathFunction(x, y);
 };
 
@@ -147,8 +145,11 @@ const dragging = function (this: Element, d: any) {
  */
 const dragEnd = function (this: SVGElement, d: any) {
 	// get mouse position relative to
-	var mouse = d3.mouse(this.ownerSVGElement as any);
-	var elements = document.elementsFromPoint(mouse[0], mouse[1]);
+	const svg = this.ownerSVGElement as any;
+	var mouse = d3.mouse(svg);
+	const mouseX = mouse[0] + svg.getBoundingClientRect().left;
+	const mouseY = mouse[1] + svg.getBoundingClientRect().top;
+	var elements = document.elementsFromPoint(mouseX, mouseY);
 
 	tempPathPoint.remove();
 	tempPath.remove();
@@ -171,56 +172,62 @@ const dragEnd = function (this: SVGElement, d: any) {
 		connectPalettes(fromIO, toIO);
 	} else {
 		d3Select.select('#temp-path')?.remove();
-		console.debug('nothing to connect here');
+		console.warn('nothing to connect here (might be due to document.elementsFromPoint, check the offset of parent svg)');
 	}
 };
 
 export const connectPalettes = (fromIO: SVGElement, toIO: SVGElement) => {
 	// make temp path to permanant path
 	// add from and to group to path.datum();
-	const fromG = fromIO.parentNode as SVGGElement;
-	const toG = toIO.parentNode as SVGGElement;
+	try {
+		const fromG = fromIO.parentNode as SVGGElement;
+		const toG = toIO.parentNode as SVGGElement;
 
-	// add to informatin in fromG
-	(d3Select.select(fromG) as SvgModuleElement).datum().to?.push(toG);
-	// add to informatin in toG
-	(d3Select.select(toG) as SvgModuleElement).datum().from?.push(fromG);
+		// add to informatin in fromG
+		const fromGD3 = d3Select.select(fromG) as SvgModuleElement;
+		fromGD3.datum().to?.push(toG);
+		// add to informatin in toG
+		const toGD3 = d3Select.select(toG) as SvgModuleElement;
+		toGD3.datum().from?.push(fromG);
 
-	const toOffset = (d3Select.select(toG) as SvgModuleElement).datum();
-	const fromOffset = (d3Select.select(fromG) as SvgModuleElement).datum();
+		const toOffset = (d3Select.select(toG) as SvgModuleElement).datum();
+		const fromOffset = (d3Select.select(fromG) as SvgModuleElement).datum();
 
-	const toX = Number(toIO.getAttribute('x')) + toOffset.x + 7.5;
-	const toY = Number(toIO.getAttribute('y')) + toOffset.y + 7.5;
+		const toX = Number(toIO.getAttribute('x')) + toOffset.x + 7.5;
+		const toY = Number(toIO.getAttribute('y')) + toOffset.y + 7.5;
 
-	const fromX = Number(fromIO.getAttribute('x')) + fromOffset.x + 7.5;
-	const fromY = Number(fromIO.getAttribute('y')) + fromOffset.y + 7.5;
+		const fromX = Number(fromIO.getAttribute('x')) + fromOffset.x + 7.5;
+		const fromY = Number(fromIO.getAttribute('y')) + fromOffset.y + 7.5;
 
-	// Get parent svg node and set temp circle for reference
-	const svgRoot = d3Select.select(fromG.ownerSVGElement as SVGSVGElement);
+		// Get parent svg node and set temp circle for reference
+		const svgRoot = d3Select.select(fromG.ownerSVGElement as SVGSVGElement);
 
-	const points = [
-		{ x: fromX, y: fromY },
-		{ x: toX, y: toY },
-	];
+		const points = [
+			{ x: fromX, y: fromY },
+			{ x: toX, y: toY },
+		];
 
-	const path = svgRoot
-		.select(`#${CLASS.CONNECTION.ID}`)
-		.append('path')
-		.attr('d', pathDFunction(points) as any)
-		.attr('stroke', 'lightgrey')
-		.attr('stroke-width', 2)
-		.attr('fill', 'none')
-		.attr('class', CLASS.CONNECTION.CLASS)
-		.attr('stroke-dasharray', '0') as SvgPathElement;
+		const path = svgRoot
+			.select(`#${CLASS.CONNECTION.ID}`)
+			.append('path')
+			.attr('d', pathDFunction(points) as any)
+			.attr('stroke', 'lightgrey')
+			.attr('stroke-width', 2)
+			.attr('fill', 'none')
+			.attr('class', CLASS.CONNECTION.CLASS)
+			.attr('stroke-dasharray', '0') as SvgPathElement;
 
-	// add to and from data in path element
-	path.datum({ from: fromG, to: toG, points });
-	// add hover handler
-	path.on('mouseover', pathMouseOverHandler);
-	path.on('mouseout', pathMouseOutHandler);
-	path.on('contextmenu', pathContextMenuHandler);
+		// add to and from data in path element
+		path.datum({ from: fromG, to: toG, points });
+		// add hover handler
+		path.on('mouseover', pathMouseOverHandler);
+		path.on('mouseout', pathMouseOutHandler);
+		path.on('contextmenu', pathContextMenuHandler);
 
-	console.debug(`connection done`);
+		console.debug(`connection done: ${fromGD3.datum().data.sid} -> ${toGD3.datum().data.sid}`);
+	} catch (err) {
+		console.error(`You might be connecting palettes witch don't have input, output or both.`);
+	}
 };
 
 const PathDragHandler = d3Drag

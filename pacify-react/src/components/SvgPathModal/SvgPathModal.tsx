@@ -6,7 +6,7 @@ interface SvgPathModalProps {
 	setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function SvgPathModal(props: SvgPathModalProps) {
+export function PathPropertiesModal(props: SvgPathModalProps) {
 	const handleOk = (e: React.MouseEvent<HTMLElement>) => {
 		props.setIsVisible(false);
 	};
@@ -21,5 +21,3 @@ function SvgPathModal(props: SvgPathModalProps) {
 		</div>
 	);
 }
-
-export default SvgPathModal;

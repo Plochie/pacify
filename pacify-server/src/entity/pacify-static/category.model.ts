@@ -1,6 +1,6 @@
 import { Field, ObjectType } from 'type-graphql';
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import Module from './module.model';
+import PacifyModule from './module.model';
 
 @ObjectType()
 @Entity({ name: 'category' })
@@ -17,15 +17,15 @@ class PacifyCategory {
 	@Column({ nullable: false })
 	title: string;
 
-	@Field()
+	@Field({ nullable: true })
 	@Column({ nullable: true })
 	desc?: string;
 
-	@OneToMany(type => Module, module => module.category, {
+	@OneToMany(type => PacifyModule, module => module.category, {
 		cascade: true,
 	})
-	@Field(type => [Module])
-	modules: Module[];
+	@Field(type => [PacifyModule])
+	modules: PacifyModule[];
 
 	@Field()
 	@CreateDateColumn()

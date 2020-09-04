@@ -1,0 +1,18 @@
+mutation addModule {
+	addModule(
+		module: {
+			categorySID: ""
+			sid: ""
+			title: ""
+			width: 0
+			height: 0
+			isStarter: false
+			isShared: false
+			inputs: [{ sid: "", title: "" }]
+			output: [{ sid: "", title: "" }]
+		}
+	) {
+		sid
+		title
+	}
+}

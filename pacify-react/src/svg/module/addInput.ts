@@ -27,24 +27,26 @@ const mouseleave = function (parent: SvgElement) {
 	}
 };
 
-const addInput = function (parent: SvgElement, props: PacifyModule): SvgRectElement {
-	const x = INPUT.WIDTH / 2 - INPUT.HEIGHT;
-	const y = props.height / 2 - INPUT.HEIGHT / 2;
+const addInput = function (parent: SvgElement, props: PacifyModule): SvgRectElement | undefined {
+	if (!props.isStarter && props.inputs && props.inputs.length > 0) {
+		const x = INPUT.WIDTH / 2 - INPUT.HEIGHT;
+		const y = props.height / 2 - INPUT.HEIGHT / 2;
 
-	// add input
-	const input = parent
-		.append('rect')
-		.attr('class', CLASS.ACTION.INPUT)
-		.attr('fill', 'red')
-		.attr('width', INPUT.WIDTH)
-		.attr('height', INPUT.HEIGHT)
-		.attr('x', x)
-		.attr('y', y);
+		// add input
+		const input = parent
+			.append('rect')
+			.attr('class', CLASS.ACTION.INPUT)
+			.attr('fill', 'red')
+			.attr('width', INPUT.WIDTH)
+			.attr('height', INPUT.HEIGHT)
+			.attr('x', x)
+			.attr('y', y);
 
-	input.on('mousedown', () => mouseDown(parent));
-	input.on('mouseleave', () => mouseleave(parent));
+		input.on('mousedown', () => mouseDown(parent));
+		input.on('mouseleave', () => mouseleave(parent));
 
-	return input;
+		return input;
+	}
 };
 
 export default addInput;

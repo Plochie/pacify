@@ -34,6 +34,7 @@ export class App {
 
 	// Configure API endpoints.
 	private routes(): void {
+		// CHECKBACK: for type-graphql (removed because does not able to determine how to use array in mutation)
 		SchemaGraphQl.then(schema => {
 			this.app.use(
 				'/graphql',
@@ -44,6 +45,15 @@ export class App {
 				}),
 			);
 		});
+
+		// this.app.use(
+		// 	'/graphql',
+		// 	GraphHTTP({
+		// 		schema: SchemaGraphQl,
+		// 		pretty: true,
+		// 		graphiql: true,
+		// 	}),
+		// );
 
 		// this.app.use('/api/', new RootController().router);
 		// this.app.use('/api/graph', new GraphController().router);

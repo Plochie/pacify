@@ -1,7 +1,7 @@
 import { PacifyFormData } from 'src/components/DynamicForm';
 
-export const NewCategoryFormData: PacifyFormData = {
-	name: 'category',
+export const NewProjectFormData: PacifyFormData = {
+	name: 'new_project',
 	size: 'small',
 	submitName: 'Submit',
 	resetName: 'Reset',
@@ -19,12 +19,9 @@ export const NewCategoryFormData: PacifyFormData = {
 		{
 			items: [
 				{
-					label: 'Short ID',
-					name: 'sid',
-					rules: [
-						{ required: true, message: 'Please enter Short ID for cateogry' },
-						{ len: 5, message: 'Length of Short ID should be exactly 5' },
-					],
+					label: 'Description',
+					name: 'desc',
+					rules: [{ required: false }],
 					type: 'string',
 				},
 			],
@@ -32,9 +29,9 @@ export const NewCategoryFormData: PacifyFormData = {
 		{
 			items: [
 				{
-					label: 'Description',
-					name: 'desc',
-					rules: [{ required: false }],
+					label: 'Location',
+					name: 'path',
+					rules: [{ required: true }],
 					type: 'string',
 				},
 			],

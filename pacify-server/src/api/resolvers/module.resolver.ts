@@ -1,7 +1,8 @@
+import { ModuleMutationArgs } from '@src/api/mutation-args';
 import environment from '@src/config/config';
-import PacifyCategory from '@src/entity/category.model';
-import Module from '@src/entity/module.model';
-import { Args, ArgsType, Field, Mutation, Query, Resolver } from 'type-graphql';
+import PacifyCategory from '@src/entity/pacify-static/category.model';
+import PacifyModule from '@src/entity/pacify-static/module.model';
+import { Arg, Args, ArgsType, Field, Mutation, Query, Resolver } from 'type-graphql';
 import { getRepository } from 'typeorm';
 
 @ArgsType()
@@ -10,48 +11,35 @@ class ModuleQueryArgs {
 	sid: string;
 }
 
-@ArgsType()
-class ModuleMutationArgs {
-	@Field(type => String)
-	categorySID: string;
-
-	@Field(type => String)
-	sid: string;
-
-	@Field(type => String)
-	title: string;
-
-	@Field(type => Number)
-	width: number;
-
-	@Field(type => Number)
-	height: number;
-
-	@Field(type => String, { nullable: true })
-	icon?: string;
-
-	categoryId: number;
-}
-
-@Resolver(of => Module)
+@Resolver(of => PacifyModule)
 class ModuleResolver {
-	@Query(() => [Module])
+	// module resolver
+	@Query(() => [PacifyModule])
 	async modules(@Args() args: ModuleQueryArgs) {
-		const repo = getRepository(Module, environment.db.name);
-		return repo.find(args);
+		// get all modules with where
+		const repo = getRepository(PacifyModule, environment.db.static.name);
+		return repo.find({
+			where: args,
+			relations: ['inputs', 'outputs', 'properties'],
+		});
 	}
 
-	@Mutation(() => Module)
-	async addModule(@Args() args: ModuleMutationArgs) {
-		const categoryRepo = getRepository(PacifyCategory, environment.db.name);
-		const moduleRepo = getRepository(Module, environment.db.name);
+	@Mutation(() => PacifyModule)
+	async addModule(@Arg('module') args: ModuleMutationArgs) {
+		// add module
+		const categoryRepo = getRepository(PacifyCategory, environment.db.static.name);
+		const moduleRepo = getRepository(PacifyModule, environment.db.static.name);
 
-		const category = await categoryRepo.findOne({ sid: args.categorySID });
+		const category = await categoryRepo.findOne({
+			where: { sid: args.categorySID },
+			relations: ['modules'],
+		});
 
-		const module = moduleRepo.create(args);
 		if (!category.modules) {
 			category.modules = [];
 		}
+
+		const module = moduleRepo.create(args);
 		category.modules.push(module);
 
 		return categoryRepo.save(category);

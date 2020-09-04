@@ -1,6 +1,7 @@
+import { CategoryMutationArgs } from '@src/api/mutation-args';
 import environment from '@src/config/config';
-import PacifyCategory from '@src/entity/category.model';
-import { Args, ArgsType, Field, Mutation, Query, Resolver } from 'type-graphql';
+import PacifyCategory from '@src/entity/pacify-static/category.model';
+import { Arg, Args, ArgsType, Field, Mutation, Query, Resolver } from 'type-graphql';
 import { getRepository } from 'typeorm';
 
 @ArgsType()
@@ -9,33 +10,23 @@ class CategoryQueryArgs {
 	sid: string;
 }
 
-@ArgsType()
-class CategoryMutationArgs {
-	@Field(type => String)
-	title: string;
-
-	@Field(type => String)
-	sid: string;
-
-	@Field(type => String, { nullable: true })
-	desc?: string;
-}
-
 @Resolver(of => PacifyCategory)
 class PacifyCategoryResolver {
+	// Pacify category resolver
 	@Query(() => [PacifyCategory])
 	async categories(@Args() args: CategoryQueryArgs): Promise<PacifyCategory[]> {
-		const repo = getRepository(PacifyCategory, environment.db.name);
+		const repo = getRepository(PacifyCategory, environment.db.static.name);
 		const categs = await repo.find({
-			relations: ['modules'],
+			relations: ['modules', 'modules.inputs', 'modules.outputs'],
+			where: args,
 		});
 
 		return categs;
 	}
 
 	@Mutation(() => PacifyCategory)
-	addCategory(@Args() args: CategoryMutationArgs) {
-		const repo = getRepository(PacifyCategory, environment.db.name);
+	addCategory(@Arg('category') args: CategoryMutationArgs) {
+		const repo = getRepository(PacifyCategory, environment.db.static.name);
 		return repo.save(args);
 	}
 }

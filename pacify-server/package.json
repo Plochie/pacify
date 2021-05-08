@@ -46,7 +46,7 @@
 		"reflect-metadata": "^0.1.13",
 		"stack-trace": "0.0.10",
 		"type-graphql": "^1.0.0-rc.1",
-		"typeorm": "^0.2.24",
+		"typeorm": "^0.2.25",
 		"winston": "^3.2.1"
 	}
 }
